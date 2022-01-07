@@ -1,10 +1,11 @@
+<app-header></app-header>
 <mat-sidenav-container class="example-container" *ngIf="!shouldRun">
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
         (closed)="events.push('close!')">
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
             <!-- This is the tree node template for leaf nodes -->
             <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-                {{node.name}}
+              <span (click)="navigateLink(node.link)">{{node.name}}</span>  
             </mat-tree-node>
             <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>    
                 {{node.name}}
@@ -16,9 +17,8 @@
             </mat-tree-node>
         </mat-tree>
     </mat-sidenav>
-
     <mat-sidenav-content>
-        <!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
-        <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+        <!-- <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p> -->
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

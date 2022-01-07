@@ -1,10 +1,11 @@
 // import { MediaMatcher } from '@angular/cdk/layout';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { Component, OnInit } from '@angular/core';
-// import { MatSidenav } from '@angular/material/sidenav';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { Router } from '@angular/router';
 interface FoodNode {
   name: string;
+  link:string;
   children?: FoodNode[];
 }
 interface ExampleFlatNode {
@@ -18,42 +19,51 @@ interface ExampleFlatNode {
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  // @ViewChild('sidenav', {static : true}) sidebar : TemplateRef<any>;
   events: string[] = [];
   opened: boolean = true;
   TREE_DATA: FoodNode[] = [
-    {name: 'Launchpad'},
-    {name: 'Dhasboard'},
+    {name: 'Launchpad',link:'dashboard'},
+    {name: 'Dhasboard' ,link:'dashboard'},
     {
       name: 'CRM',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}],
     },
     {
       name: 'Service Desk',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}]
     },
     {
       name: 'Client Management',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}]
     },
     {
       name: 'Reporting',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}],
     },
     {
       name: 'New Business',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops', link:'dashboard',}],
     },
     {
       name: 'Videos',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops', link:'dashboard',}],
     },
     {
       name: 'Admin',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops' , link:'dashboard',}]
     },
     {
       name: 'Useful info',
-      children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
+      link:'dashboard',
+      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops', link:'dashboard',}]
     },
   ];
   private _transformer = (node: FoodNode, level: number) => {
@@ -76,7 +86,7 @@ export class SidebarComponent implements OnInit {
     node => node.children,
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-  constructor() {
+  constructor(public router:Router) {
     this.dataSource.data = this.TREE_DATA;
 
   }
@@ -86,4 +96,8 @@ export class SidebarComponent implements OnInit {
   }
   shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
 
+
+  navigateLink(link:any){
+     this.router.navigate([`/${link}`])
+  }
 }

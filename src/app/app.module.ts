@@ -9,13 +9,17 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './pages/sharing/sidebar/sidebar.component';
 import { HeaderComponent } from './pages/sharing/header/header.component';
+import { SharingComponent } from './pages/sharing/sharing.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    SharingComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
