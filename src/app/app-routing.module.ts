@@ -5,9 +5,12 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SharingComponent } from './pages/sharing/sharing.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent },
-  {path:'Share',component:SharingComponent},
-  {path:'dashboard',component:DashboardComponent}
+  {path:'',redirectTo: '/login', pathMatch: 'full'},
+  {path:'login',component:LoginComponent },
+  {path:'Share',component:SharingComponent ,children:[
+    {path:'',component:DashboardComponent}
+  ]},
+  
 ];
 
 @NgModule({

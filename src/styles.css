@@ -53,8 +53,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .mat-form-field-appearance-fill .mat-form-field-flex{
     background-color: transparent;
     padding: 0!important;
-
+    border-bottom: 1px solid white;
    }
   button:focus{
     outline: none!important;
   }
+
+  tr.mat-header-row,tr.mat-row{
+    height: 35px!important;
+  }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

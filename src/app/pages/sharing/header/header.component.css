@@ -2,8 +2,15 @@
     flex: 1 1 auto;
   }
 
-  .mat-form-field{
+mat-form-field{
     font-size: small;
     font-weight: 300;
   }
+mat-toolbar{
+  background-color: #083240;
+  color: white;
+}
 
+mat-form-field input::placeholder{
+  color: white;
+}

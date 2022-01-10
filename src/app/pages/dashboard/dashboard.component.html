@@ -1,1 +1,156 @@
-<p>dashboard works!</p>
+<mat-grid-list [cols]="mybreakpoint" rowHeight="3:2" gutterSize="15px" (window:resize)="handleSize($event)"
+    style="margin: 20px;">
+    <div class="display-4">Dashboard </div>
+    <mat-grid-tile>
+        <mat-card style="width: 100%;padding:0px">
+            <div class="mat-subheading-2">Opportunities to close </div>
+            <mat-card-content>
+                <div class="example-container">
+                    <table mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef> Weight </th>
+                            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card style="width: 100%;padding:0px">
+            <div class="mat-subheading-2">Opportunities to close </div>
+            <mat-card-content>
+                <div class="example-container">
+                    <table mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef> Weight </th>
+                            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card style="width: 100%;padding:0px">
+            <div class="mat-subheading-2">Opportunities to close </div>
+            <mat-card-content>
+                <div class="example-container">
+                    <table mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef> Weight </th>
+                            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan=3>
+        <mat-card style="width: 100%;padding:0px">
+            <div class="mat-subheading-2">Opportunities to close </div>
+            <mat-card-content>
+                <div class="example-container">
+                    <table mat-table [dataSource]="dataSource">
+                        <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef> Weight </th>
+                            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="6" rowHeight="6:8" gutterSize="15px" (window:resize)="handleSize($event)"
+    style="margin: 20px;">
+    <div class="mat-title">Support Apps </div>
+    <mat-grid-tile class="support-apps">
+        <mat-card style="width: 100%;height: 100%;padding:0px">
+            <h3 class="p-2 m-0">company</h3>
+            <mat-card-content class="p-2">
+                <p  style="height: 90px;">
+                  The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                  A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                  bred for hunting.
+                </p>
+              </mat-card-content>
+            <mat-card-actions class="card-footer p-2" xLayout="row" fxLayoutAlign="space-between center" >
+                <a href="#" class="link-primary" ><h3 class="m-0">Launch</h3> </a>
+                <a href="#" class="link-primary" ><h3 class="m-0">Learn More</h3> </a>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="support-apps">
+        <mat-card style="width: 100%;height: 100%;padding:0px">
+            <h3 class="p-2 m-0">company</h3>
+            <mat-card-content class="p-2">
+                <p  style="height: 90px;">
+                  The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                  A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                  bred for hunting.
+                </p>
+              </mat-card-content>
+            <mat-card-actions class="card-footer p-2" xLayout="row" fxLayoutAlign="space-between center" >
+                <a href="#" class="link-primary" ><h3 class="m-0">Launch</h3> </a>
+                <a href="#" class="link-primary" ><h3 class="m-0">Learn More</h3> </a>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

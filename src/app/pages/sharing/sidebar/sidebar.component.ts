@@ -1,6 +1,6 @@
 // import { MediaMatcher } from '@angular/cdk/layout';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { Router } from '@angular/router';
 interface FoodNode {
@@ -11,6 +11,7 @@ interface FoodNode {
 interface ExampleFlatNode {
   expandable: boolean;
   name: string;
+  link:string;
   level: number;
 }
 @Component({
@@ -19,12 +20,13 @@ interface ExampleFlatNode {
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  // @ViewChild('sidenav', {static : true}) sidebar : TemplateRef<any>;
+  // @ViewChild('sidenav') sidebar !: ElementRef;
+  @Input() menuState: any;
   events: string[] = [];
   opened: boolean = true;
   TREE_DATA: FoodNode[] = [
     {name: 'Launchpad',link:'dashboard'},
-    {name: 'Dhasboard' ,link:'dashboard'},
+    {name: 'Dhasboard',link:'dashboard'},
     {
       name: 'CRM',
       link:'dashboard',
@@ -70,6 +72,7 @@ export class SidebarComponent implements OnInit {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
+      link: node.link,
       level: level,
     };
   };
@@ -87,6 +90,8 @@ export class SidebarComponent implements OnInit {
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   constructor(public router:Router) {
+    //  const divEl: HTMLDivElement = this.myTestDiv.nativeElement;
+    // console.log(this.sidebar);
     this.dataSource.data = this.TREE_DATA;
 
   }
@@ -94,10 +99,14 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ngOnChanges(){
+    console.log("inside ngOnChanges with subMenuState: ",this.menuState );
+    this.opened = this.menuState;
+  }
   shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
 
 
   navigateLink(link:any){
-     this.router.navigate([`/${link}`])
+     this.router.navigate([`Share/${link}`])
   }
 }

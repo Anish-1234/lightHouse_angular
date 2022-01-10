@@ -1,2 +1,3 @@
 <!-- <app-header (click)="sidenav.toggle()"></app-header> -->
-<app-sidebar></app-sidebar>
+<app-header (menuState)='menuClicked($event)'></app-header>
+<app-sidebar  [menuState]="menuState"></app-sidebar>
