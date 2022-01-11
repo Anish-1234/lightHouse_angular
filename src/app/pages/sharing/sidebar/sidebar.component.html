@@ -1,13 +1,16 @@
-<mat-sidenav-container class="example-container" *ngIf="!shouldRun">
+<mat-sidenav-container class="example-container" >
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
         (closed)="events.push('close!')">
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
             <!-- This is the tree node template for leaf nodes -->
             <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-              <span (click)="navigateLink(node.link)">{{node.name}}</span>  
+                
+                <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>   
+              <span (click)="navigateLink(node.link)">{{node.name}} </span>  
             </mat-tree-node>
-            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>    
-                {{node.name}}
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" >  
+                <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>   
+               <span>{{node.name}}</span> 
                 <button class="ml-auto" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
                     <mat-icon class="mat-icon-rtl-mirror">
                         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
@@ -17,7 +20,6 @@
         </mat-tree>
     </mat-sidenav>
     <mat-sidenav-content>
-        <!-- <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p> -->
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

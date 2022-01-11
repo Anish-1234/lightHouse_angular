@@ -8,7 +8,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() menuState = new EventEmitter();
   showMenu:boolean = true; /* false by default, since hidden */
-
+  tickets:string[]=['item1','item2'];
+  notification:string[]=['item1','item2'];
+  profile:string[]=['item1','item2'];
   constructor() { }
 
   ngOnInit(): void {

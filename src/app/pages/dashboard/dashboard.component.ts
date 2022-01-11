@@ -29,8 +29,10 @@ export class DashboardComponent implements OnInit {
     
   ];
   
-  displayedColumns:string[] =['position', 'name', 'weight']
-  
+  opportunities:string[] =['Client/Name', 'Total_Profit', 'Status']
+  toDoList:string[]=['Client','To_Do_Date']
+  clientCall:string[]=['Client','Last_Conversation_Date']
+  recentConversation:string[]=['Client','Spoken_to','Notes','Contacted']
   dataSource = this.ELEMENT_DATA;
   constructor() { }
 
@@ -42,7 +44,4 @@ export class DashboardComponent implements OnInit {
     this.mybreakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
     // this.mybreakpointheight=(event.target.innerHeight<=200)?'wrap':'none'
     }
-  // handleSize(event:any) {
-  //   this.mybreakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
-  //   }
 }

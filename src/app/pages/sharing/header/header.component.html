@@ -1,65 +1,55 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon (click)="toggleMenu()" >menu</mat-icon>
     </button>
-    <span>My App</span>
+    <!-- <span>My App</span> -->
+    <div class="mat-headline m-0">LIGHTHOUSE</div>
     <span class="example-spacer"></span>
     <mat-form-field appearance="fill" class="example-full-width">
       <input matInput placeholder="Search Open Ticket">
     </mat-form-field>
-    <button mat-icon-button class="mr-4" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-      <i class="fa fa-ticket" aria-hidden="true"></i> <i class="fa fa-caret-down" style="font-size: medium;" aria-hidden="true"></i>
+    <button mat-icon-button class="mr-2" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <div class="mat-body-1  m-0"> <i class="fa fa-ticket" aria-hidden="true"></i> <i class="fa fa-caret-down" aria-hidden="true"></i></div> 
+      
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <span>Redial</span>
-      </button>
-      <button mat-menu-item disabled>
-        <span>Check voice mail</span>
-      </button>
-      <button mat-menu-item>
-        <span>Disable alerts</span>
-      </button>
+      <ng-container *ngFor="let item of tickets">
+        <button mat-menu-item>
+          <span>{{item}}</span>
+        </button>
+      </ng-container>
     </mat-menu>
     
-    <mat-form-field class="example-full-width mr-4" appearance="fill">
+    <mat-form-field class="example-full-width mr-2" appearance="fill">
       <input matInput placeholder="Search Users">
     </mat-form-field>
-    <mat-form-field class="example-full-client mr-4" appearance="fill">
+    <mat-form-field class="example-full-client mr-2" appearance="fill">
       <input matInput placeholder="Search Client">
     </mat-form-field>
 
-    <button mat-icon-button class="mr-4" aria-label="Example icon-button with a menu">
-         <i class="fa fa-key" aria-hidden="true"></i>
+    <button mat-icon-button class="mr-2" aria-label="Example icon-button with a menu">
+      <div class="mat-body-1  m-0">  <i class="fa fa-key" aria-hidden="true"></i></div> 
     </button>
-    <button mat-icon-button class="mr-4" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-      <i class="fa fa-bell" aria-hidden="true"></i> 0 <i class="fa fa-caret-down mr-1" style="font-size: medium;" aria-hidden="true"></i>
+    <button mat-icon-button class="mr-2" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <div class="mat-body-1  m-0"><i class="fa fa-bell mr-1" aria-hidden="true"></i>0<i class="fa fa-caret-down" aria-hidden="true"></i></div> 
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <span>Redial</span>
-      </button>
-      <button mat-menu-item disabled>
-        <span>Check voice mail</span>
-      </button>
-      <button mat-menu-item>
-        <span>Disable alerts</span>
-      </button>
+      <ng-container *ngFor="let item of notification">
+        <button mat-menu-item>
+          <span>{{item}}</span>
+        </button>
+      </ng-container>
     </mat-menu>
 
-    <button class="ml-2" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-              <i class="fa fa-user" aria-hidden="true">User</i>
+    <button class="mr-2" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <div class="mat-body-1  m-0"><i class="fa fa-user mr-1" aria-hidden="true"></i>User<i class="fa fa-caret-down" aria-hidden="true"></i></div> 
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <span>Redial</span>
-      </button>
-      <button mat-menu-item disabled>
-        <span>Check voice mail</span>
-      </button>
-      <button mat-menu-item>
-        <span>Disable alerts</span>
-      </button>
+      <ng-container *ngFor="let item of profile">
+        <button mat-menu-item>
+          <span>{{item}}</span>
+        </button>
+      </ng-container>
     </mat-menu>
   </mat-toolbar>
   

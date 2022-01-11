@@ -1,17 +1,18 @@
-// import { MediaMatcher } from '@angular/cdk/layout';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { Component, ElementRef, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component,Input, OnInit, } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { Router } from '@angular/router';
 interface FoodNode {
   name: string;
   link:string;
+  icon:string;
   children?: FoodNode[];
 }
 interface ExampleFlatNode {
   expandable: boolean;
   name: string;
   link:string;
+  icon:string;
   level: number;
 }
 @Component({
@@ -20,58 +21,66 @@ interface ExampleFlatNode {
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  // @ViewChild('sidenav') sidebar !: ElementRef;
   @Input() menuState: any;
   events: string[] = [];
   opened: boolean = true;
   TREE_DATA: FoodNode[] = [
-    {name: 'Launchpad',link:'dashboard'},
-    {name: 'Dhasboard',link:'dashboard'},
+    {name: 'Launchpad',link:'dashboard',icon:'fa-rocket'},
+    {name: 'Dhasboard',link:'dashboard',icon:'fa-tachometer'},
     {
       name: 'CRM',
       link:'dashboard',
-      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}],
+      icon:'fa-building',
+      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}]
     },
     {
       name: 'Service Desk',
       link:'dashboard',
-      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}]
+      icon:'fa-wrench',
+      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}]
     },
     {
       name: 'Client Management',
       link:'dashboard',
-      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}]
+      icon:'fa-suitcase',
+      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}]
     },
     {
       name: 'Reporting',
       link:'dashboard',
-      children: [{name: 'Apple',link:'dashboard'}, {name: 'Banana',link:'dashboard'}, {name: 'Fruit loops',link:'dashboard'}],
+      icon:'fa-bar-chart',
+      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
     },
     {
       name: 'New Business',
       link:'dashboard',
-      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops', link:'dashboard',}],
+      icon:'fa-id-card',
+       children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
     },
     {
       name: 'Videos',
       link:'dashboard',
-      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops', link:'dashboard',}],
+      icon:'fa-file-video-o',
+       children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
     },
     {
       name: 'Admin',
       link:'dashboard',
-      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops' , link:'dashboard',}]
+      icon:'fa-cogs',
+      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
     },
     {
       name: 'Useful info',
       link:'dashboard',
-      children: [{name: 'Apple', link:'dashboard',}, {name: 'Banana', link:'dashboard',}, {name: 'Fruit loops', link:'dashboard',}]
+      icon:'fa-info-circle',
+      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
     },
   ];
   private _transformer = (node: FoodNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
+      icon: node.icon,
       link: node.link,
       level: level,
     };
@@ -90,22 +99,15 @@ export class SidebarComponent implements OnInit {
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   constructor(public router:Router) {
-    //  const divEl: HTMLDivElement = this.myTestDiv.nativeElement;
-    // console.log(this.sidebar);
     this.dataSource.data = this.TREE_DATA;
-
   }
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   ngOnInit(): void {
   }
   ngOnChanges(){
-    console.log("inside ngOnChanges with subMenuState: ",this.menuState );
     this.opened = this.menuState;
   }
-  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
-
-
   navigateLink(link:any){
      this.router.navigate([`Share/${link}`])
   }
