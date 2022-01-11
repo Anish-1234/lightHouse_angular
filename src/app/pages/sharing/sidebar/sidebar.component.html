@@ -11,11 +11,9 @@
             <mat-tree-node *matTreeNodeDef="let node;when: hasChild" >  
                 <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>   
                <span>{{node.name}}</span> 
-                <button class="ml-auto" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                    <mat-icon class="mat-icon-rtl-mirror">
+                <mat-icon class="mat-icon-rtl-mirror ml-auto"  mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
                         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                    </mat-icon>
-                </button>
+                </mat-icon>
             </mat-tree-node>
         </mat-tree>
     </mat-sidenav>
