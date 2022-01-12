@@ -3,14 +3,14 @@
         (closed)="events.push('close!')">
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
             <!-- This is the tree node template for leaf nodes -->
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding  (click)="navigateLink(node.link)" style="cursor: pointer;">
                 
                 <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>   
-              <span (click)="navigateLink(node.link)">{{node.name}} </span>  
+              <span >{{node.name}} </span>  
             </mat-tree-node>
-            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" >  
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" (click)="navigateLink(node.link)"  style="cursor: pointer;">  
                 <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>   
-               <span>{{node.name}}</span> 
+               <span  >{{node.name}}</span> 
                 <mat-icon class="mat-icon-rtl-mirror ml-auto"  mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
                         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                 </mat-icon>

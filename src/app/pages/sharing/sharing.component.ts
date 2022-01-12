@@ -13,7 +13,6 @@ export class SharingComponent implements OnInit {
   }
   menuClicked(event:any){
     this.menuState = event;
-    console.log("inside burgerClicked: pls. change showMenu to be:",this.menuState);
   }
 
 }

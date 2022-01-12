@@ -26,10 +26,10 @@ export class SidebarComponent implements OnInit {
   opened: boolean = true;
   TREE_DATA: FoodNode[] = [
     {name: 'Launchpad',link:'dashboard',icon:'fa-rocket'},
-    {name: 'Dhasboard',link:'client-list',icon:'fa-tachometer'},
+    {name: 'Dhasboard',link:'dashboard',icon:'fa-tachometer'},
     {
       name: 'CRM',
-      link:'dashboard',
+      link:'client-list',
       icon:'fa-building',
       children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}]
     },
