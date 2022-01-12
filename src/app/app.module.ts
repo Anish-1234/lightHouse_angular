@@ -11,6 +11,9 @@ import { SidebarComponent } from './pages/sharing/sidebar/sidebar.component';
 import { HeaderComponent } from './pages/sharing/header/header.component';
 import { SharingComponent } from './pages/sharing/sharing.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ClientListComponent } from './pages/client-list/client-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MockService } from './service/mock.service';
 
 @NgModule({
   declarations: [
@@ -19,16 +22,19 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SidebarComponent,
     HeaderComponent,
     SharingComponent,
-    DashboardComponent
+    DashboardComponent,
+    ClientListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     AngularMaterialModule,
     FlexLayoutModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [MockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

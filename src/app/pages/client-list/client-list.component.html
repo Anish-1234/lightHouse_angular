@@ -1,0 +1,109 @@
+<div class="p-4">
+    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='5px'>
+        <ng-container *ngFor="let form of clientForm">
+            <div fxLayout="row" fxLayoutAlign="start start" fxFlex="16">
+                <div class="mat-caption px-1 mt-2" fxFlex="40">
+                    {{form?.key}}
+                </div>
+                <mat-form-field appearance="fill" fxFlex="60">
+                    <mat-select [formControl]="colorControl">
+                        <mat-option value="one">Any</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </ng-container>
+        <div class="mx-auto" fxLayout="row" fxLayoutGap='5px'>
+            <button mat-raised-button>Reset</button>
+            <button mat-raised-button color="primary">Filter</button>
+        </div>
+
+    </div>
+    <mat-card style="height: auto;">
+        <mat-card-header>
+            <div class="mat-body-1">
+                <i class="fa fa-building pr-1" aria-hidden="true"></i>Clients
+                <button mat-raised-button>146</button>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+
+            <div class="example-container px-3">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <button mat-raised-button color="primary">
+                        <div class="mat-body-1 py-2">
+                            EXPORT TO CSV
+                        </div>
+                    </button>
+                    <mat-paginator   [pageSize]="pageSize"
+                        showFirstLastButtons [pageSizeOptions]="pageSizeOptions"
+                        [pageIndex]="pageIndex" aria-label="Select page">
+                    </mat-paginator>
+                </div>
+                <table mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="Name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Primary_Site_Contact">
+                        <th mat-header-cell *matHeaderCellDef>Primary Site Contact</th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="mat-body-2">
+                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CST">
+                        <th mat-header-cell *matHeaderCellDef> CST </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="mat-body-2">
+                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Solarwinds">
+                        <th mat-header-cell *matHeaderCellDef> Solarwinds </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.address?.zipcode}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="IASO">
+                        <th mat-header-cell *matHeaderCellDef> IASO </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.address?.zipcode}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Mail_Scanning">
+                        <th mat-header-cell *matHeaderCellDef> Mail Scanning </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.address?.zipcode}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CEL">
+                        <th mat-header-cell *matHeaderCellDef>CEL </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="mat-body-2">
+                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Active">
+                        <th mat-header-cell *matHeaderCellDef> Active </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="mat-body-2">
+                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Team">
+                        <th mat-header-cell *matHeaderCellDef>Team</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.toggle==true ? 'WatchTower' : 'Nautilus'}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Reveiw_Date">
+                        <th mat-header-cell *matHeaderCellDef>Reveiw Date</th>
+                        <td mat-cell *matCellDef="let element"> </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="recentConversation; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: recentConversation;"></tr>
+                </table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -2,14 +2,13 @@
     style="margin: 20px;">
     <div class="display-4">Dashboard </div>
     <mat-grid-tile>
-        <mat-card style="width: 100%;padding:0px">
-            <div class="mat-subheading-2">
-                <i class="fa fa-eur pr-1" aria-hidden="true"></i> Opportunities to close
-                <button mat-mini-fab class="button-list">0
-                </button>
-            </div>
+        <mat-card >
             <mat-card-header>
-
+                <div class="mat-subheading-2">
+                    <i class="fa fa-eur pr-1" aria-hidden="true"></i> Opportunities to close
+                    <button mat-mini-fab color="accent">0
+                    </button>
+                </div>
             </mat-card-header>
             <mat-card-content>
                 <div class="example-container">
@@ -38,8 +37,12 @@
 
     </mat-grid-tile>
     <mat-grid-tile>
-        <mat-card style="width: 100%;padding:0px">
-            <div class="mat-subheading-2"><i class="fa fa-bars pr-1" aria-hidden="true"></i>Your to do list </div>
+        <mat-card >
+            <mat-card-header>
+                <div class="mat-subheading-2">
+                    <i class="fa fa-bars pr-1" aria-hidden="true"></i>Your to do list 
+                </div>
+            </mat-card-header>
             <mat-card-content>
                 <div class="example-container">
                     <table mat-table [dataSource]="dataSource">
@@ -62,12 +65,12 @@
 
     </mat-grid-tile>
     <mat-grid-tile>
-        <mat-card style="width: 100%;padding:0px">
-            <div class="mat-subheading-2"> <i class="fa fa-comments pr-1" aria-hidden="true"></i>Clients you need to
-                call
-                <button mat-mini-fab class="button-list" aria-label="Example icon button with a filter list icon">0
-                </button>
-            </div>
+        <mat-card >
+            <mat-card-header>
+                <div class="mat-subheading-2"> <i class="fa fa-comments pr-1" aria-hidden="true"></i>Clients you need tocall
+                    <button mat-mini-fab>0 </button>
+                </div>
+            </mat-card-header>
             <mat-card-content>
                 <div class="example-container">
                     <table mat-table [dataSource]="dataSource">
@@ -90,9 +93,12 @@
 
     </mat-grid-tile>
     <mat-grid-tile colspan=3>
-        <mat-card style="width: 100%;padding:0px">
-            <div class="mat-subheading-2"> <i class="fa fa-comments pr-1" aria-hidden="true"></i>Your most recent
-                conservation </div>
+        <mat-card >
+            <mat-card-header>
+                <div class="mat-subheading-2"> 
+                    <i class="fa fa-comments pr-1" aria-hidden="true"></i>Your most recent conservation 
+                </div>
+            </mat-card-header>
             <mat-card-content>
                 <div class="example-container">
                     <table mat-table [dataSource]="dataSource">
@@ -127,7 +133,7 @@
 <mat-grid-list cols="6" rowHeight="6:8" gutterSize="15px" (window:resize)="handleSize($event)" style="margin: 20px;">
     <div class="mat-title">Support Apps </div>
     <mat-grid-tile class="support-apps">
-        <mat-card style="width: 100%;height: 100%;padding:0px">
+        <mat-card >
             <h3 class="p-2 m-0">company</h3>
             <mat-card-content class="p-2">
                 <div class="mat-caption" style="height: 90px;">The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -145,14 +151,9 @@
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile class="support-apps">
-        <mat-card style="width: 100%;height: 100%;padding:0px">
+        <mat-card>
             <h3 class="p-2 m-0">company</h3>
             <mat-card-content class="p-2">
-                <!-- <p style="height: 90px;">
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p> -->
                 <div class="mat-caption" style="height: 90px;">The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
                     A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
                     bred for hunting.

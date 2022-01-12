@@ -6,14 +6,8 @@
 table {
   width: 100%;
 }
-.mat-subheading-2{
-  background-color: #37474f;
-  padding: 8px 20px;
-  color: white;
-  margin: 0;
-}
 .display-4,.mat-title{
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px #c7c2c2;
   margin-bottom: 10px;
 }
 .mat-card-actions{
@@ -26,16 +20,11 @@ table {
   position: sticky;
   top: 0;
 }
-.mat-typography h3{
-  font-size: 14px;
-  font-weight: 500;
-}
 .support-apps{
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 11%), 0 3px 10px 0 rgb(0 0 0 / 15%);
 }
-.button-list{
-  background-color: black;
-  width: 25px;
-  height: 25px;
-  line-height: 18px;
+mat-grid-tile {
+  box-shadow: 0 1px 6px 0 rgb(0 0 0 / 10%), 0 6px 12px 0 rgb(0 0 0 / 5%);
+  border-radius: 5px;
 }
+

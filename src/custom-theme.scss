@@ -1,41 +1,73 @@
-
+$matTabColor: black;
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-// @include mat.strong-focus-indicators((
-//  height:25px,
-//  width:25px,
-//  line-height:18px,
-// ));
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$lightHouse-primary: mat.define-palette(mat.$blue-gray-palette,800 );
+$lightHouse-primary: mat.define-palette(mat.$blue-gray-palette, 800);
 $lightHouse-accent: mat.define-palette(mat.$pink-palette, A200, A100, A900);
-// $lightHouse-dark:mat.define-palette(mat.$blue-palette);
+// $lightHouse-dark: mat.define-palette(mat.$matTabColor);
+
 // The warn palette is optional (defaults to red).
 $lightHouse-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$lightHouse-theme: mat.define-light-theme((
-  color: (
-    primary: $lightHouse-primary,
-    accent: $lightHouse-accent,
-    warn: $lightHouse-warn,
-    // dark:$lightHouse-dark,
+$lightHouse-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $lightHouse-primary,
+      accent: $lightHouse-accent,
+      warn: $lightHouse-warn,
+      dark: $matTabColor,
+    ),
   )
-));
-
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($lightHouse-theme);
-// @include mat.strong-focus-indicators-theme(black);
+// @include mat.all-component-header($mat-card)
+
+  mat-card {
+    width: 100%;
+    height: 100%;
+    padding: 0px !important;
+    .mat-select-arrow-wrapper{
+      transform: translateY(-15%)!important;
+    }
+    mat-card-header {
+      background-color: #37474f;
+      padding: 8px 20px;
+      color: white;
+      .mat-card-header-text {
+        margin: 0;
+      }
+      .mat-subheading-2,.mat-body-1 {
+        margin: 0;
+        .mat-mini-fab {
+          background-color: black;
+          width: 25px;
+          height: 25px;
+          line-height: 18px;
+        }
+        .mat-raised-button{
+          background-color: black;
+          color: white;
+          min-width: 35px;
+          font-size: 12px;
+          padding: 0 3px;
+          border-radius: 12px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
