@@ -36,8 +36,8 @@ $lightHouse-theme: mat.define-light-theme(
 // that you are using.
 @include mat.all-component-themes($lightHouse-theme);
 // @include mat.all-component-header($mat-card)
-
-  mat-card {
+.container{ 
+   mat-card {
     width: 100%;
     height: 100%;
     padding: 0px !important;
@@ -71,3 +71,4 @@ $lightHouse-theme: mat.define-light-theme(
       }
     }
   }
+}
