@@ -1,22 +1,27 @@
 <div class="main_container p-4">
-    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='5px'>
-        <ng-container *ngFor="let form of clientForm">
-            <div fxLayout="row" fxLayoutAlign="start start" fxFlex="16">
-                <div class="mat-caption px-1 mt-2" fxFlex="40">
-                    {{form?.key}}
+    <form  [formGroup]="clientListForm">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='5px'>
+
+            <ng-container *ngFor="let form of clientData">
+                <div fxLayout="row" fxLayoutAlign="start start" fxFlex="16">
+                    <div class="mat-caption px-1 mt-2" fxFlex="40">
+                        {{form?.key}}
+                    </div>
+                    <mat-form-field appearance="fill" fxFlex="60" >
+                        <mat-select formControlName={{form?.formName}}>
+                            <mat-option value="one">Any</mat-option>
+                            <mat-option value="two">two</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
-                <mat-form-field appearance="fill" fxFlex="60">
-                    <mat-select [formControl]="colorControl">
-                        <mat-option value="one">Any</mat-option>
-                    </mat-select>
-                </mat-form-field>
+            </ng-container>
+
+            <div class="mx-auto" fxLayout="row" fxLayoutGap='5px'>
+                <button mat-raised-button>Reset</button>
+                <button mat-raised-button color="primary">Filter</button>
             </div>
-        </ng-container>
-        <div class="mx-auto" fxLayout="row" fxLayoutGap='5px'>
-            <button mat-raised-button>Reset</button>
-            <button mat-raised-button color="primary">Filter</button>
         </div>
-    </div>
+    </form>
     <mat-card style="height: auto;">
         <mat-card-header>
             <div class="mat-body-1">
@@ -33,8 +38,7 @@
                             EXPORT TO CSV
                         </div>
                     </button>
-                    <mat-paginator   [pageSize]="pageSize"
-                        showFirstLastButtons [pageSizeOptions]="pageSizeOptions"
+                    <mat-paginator [pageSize]="pageSize" showFirstLastButtons [pageSizeOptions]="pageSizeOptions"
                         [pageIndex]="pageIndex" aria-label="Select page">
                     </mat-paginator>
                 </div>
@@ -99,8 +103,8 @@
                         <th mat-header-cell *matHeaderCellDef>Reveiw Date</th>
                         <td mat-cell *matCellDef="let element"> </td>
                     </ng-container>
-                    <tr mat-header-row *matHeaderRowDef="recentConversation; sticky: true"></tr>
-                    <tr mat-row *matRowDef="let row; columns: recentConversation;"></tr>
+                    <tr mat-header-row *matHeaderRowDef="clientList; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: clientList;"></tr>
                 </table>
             </div>
         </mat-card-content>

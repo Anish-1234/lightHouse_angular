@@ -13,3 +13,11 @@ mat-toolbar{
 mat-form-field input::placeholder{
   color: white;
 }
+
+.icon-lighthouse-icon{
+  color: #37474f;
+  background: white;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  padding: 3px;
+}
