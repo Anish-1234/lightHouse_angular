@@ -8,9 +8,9 @@
                         {{form?.key}}
                     </div>
                     <mat-form-field appearance="fill" fxFlex="60" >
-                        <mat-select formControlName={{form?.formName}}>
-                            <mat-option value="one">Any</mat-option>
-                            <mat-option value="two">two</mat-option>
+                        <mat-select formControlName={{form?.formName}} (click)="filter($event)">
+                            <mat-option value="">Any</mat-option>
+                            <mat-option [value]="data" *ngFor="let data of form?.values">{{data}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -45,14 +45,14 @@
                 <table mat-table [dataSource]="dataSource">
                     <ng-container matColumnDef="Name">
                         <th mat-header-cell *matHeaderCellDef> Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="Primary_Site_Contact">
                         <th mat-header-cell *matHeaderCellDef>Primary Site Contact</th>
                         <td mat-cell *matCellDef="let element">
                             <div class="mat-body-2">
-                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                                <i [class]="element.isHavingPrimarySiteContact==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
                             </div>
                         </td>
                     </ng-container>
@@ -60,28 +60,28 @@
                         <th mat-header-cell *matHeaderCellDef> CST </th>
                         <td mat-cell *matCellDef="let element">
                             <div class="mat-body-2">
-                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                                <i [class]="element.isHavingCSTUsers==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
                             </div>
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="Solarwinds">
                         <th mat-header-cell *matHeaderCellDef> Solarwinds </th>
-                        <td mat-cell *matCellDef="let element"> {{element?.address?.zipcode}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element?.gfiId}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="IASO">
                         <th mat-header-cell *matHeaderCellDef> IASO </th>
-                        <td mat-cell *matCellDef="let element"> {{element?.address?.zipcode}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element?.iasoId}} </td>
                     </ng-container>
                     <ng-container matColumnDef="Mail_Scanning">
                         <th mat-header-cell *matHeaderCellDef> Mail Scanning </th>
-                        <td mat-cell *matCellDef="let element"> {{element?.address?.zipcode}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element?.iasoId}} </td>
                     </ng-container>
                     <ng-container matColumnDef="CEL">
                         <th mat-header-cell *matHeaderCellDef>CEL </th>
                         <td mat-cell *matCellDef="let element">
                             <div class="mat-body-2">
-                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                                <i [class]="element?.CEL==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
                             </div>
                         </td>
                     </ng-container>
@@ -89,19 +89,19 @@
                         <th mat-header-cell *matHeaderCellDef> Active </th>
                         <td mat-cell *matCellDef="let element">
                             <div class="mat-body-2">
-                                <i [class]="element.toggle==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
+                                <i [class]="element.isActive==true ? 'fa fa-check':'fa fa-times'" aria-hidden="true"></i>
                             </div>
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="Team">
                         <th mat-header-cell *matHeaderCellDef>Team</th>
                         <td mat-cell *matCellDef="let element">
-                            {{element.toggle==true ? 'WatchTower' : 'Nautilus'}}
+                            {{element.teamName}}
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="Reveiw_Date">
                         <th mat-header-cell *matHeaderCellDef>Reveiw Date</th>
-                        <td mat-cell *matCellDef="let element"> </td>
+                        <td mat-cell *matCellDef="let element"> {{element?.reviewDate}}</td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="clientList; sticky: true"></tr>
                     <tr mat-row *matRowDef="let row; columns: clientList;"></tr>
