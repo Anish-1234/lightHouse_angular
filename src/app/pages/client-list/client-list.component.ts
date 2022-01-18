@@ -48,14 +48,167 @@ export class ClientListComponent implements OnInit {
       roadmaps:[''],
       teams:['']
     })   
-    console.log(this.clientListForm);
-     
+    this.formsubcribe()
+    this.getFormsValue()
+    // this.dataSource.filterPredicate=(data:any,filter:string):boolean{}
+    // console.log(this.clientListForm.value);
   }
   ngAfterViewInit() {
     this.dataSource.paginator=this.paginator 
+    // console.log(this.dataSource);
+    
   }
-  filter(event:Event){
-    this.dataSource.filter='Active'
+  filterData={
+    active:true,
+    solarwinds:'',
+    IASO:'',
+    Mail:'',
+    CEL:true,
+    CST:true,
+    site_contact:true,
+    roadmaps:'',
+    teams:'',
+  }
+  formsubcribe(){
+    
+    // this.getFormsValue(filterData)
+    this.clientListForm.get('site_contact').valueChanges.subscribe((site_contactValue:any)=>{
+      this.filterData.site_contact=site_contactValue=='Has Site Contact'?true:false
+      this.dataSource.filter = JSON.stringify(this.filterData);
+      // console.log(this.dataSource.filter); 
+    })
+    this.clientListForm.get('CST').valueChanges.subscribe((CSTValue:any)=>{
+      this.filterData.CST=CSTValue=='Has CST'?true:false
+      this.dataSource.filter = JSON.stringify(this.filterData);
+      // console.log(this.dataSource.filter); 
+    })
+    this.clientListForm.get('CEL').valueChanges.subscribe((CELValue:any)=>{
+      this.filterData.CEL=CELValue=='Has CEL'?true:false
+      this.dataSource.filter = JSON.stringify(this.filterData);
+      // console.log(this.dataSource.filter); 
+    })
+    // this.clientListForm.get('active').valueChanges.subscribe((activeValue:any)=>{
+    //   activeValue=='Active'?true:false
+    //   // this.clientListForm.setValue({active:activeValue=='Active'?true:false})
+    //   this.dataSource.filter = JSON.stringify(activeValue);
+    //   console.log(this.dataSource); 
+    // })
+    this.clientListForm.get('teams').valueChanges.subscribe((teamValue:any)=>{
+      // filterData.active=activeValue=='Active'?true:false
+      this.dataSource.filter = teamValue;
+      console.log(this.dataSource.filter); 
+    })
+  }
+  
+  getFormsValue() {
+    this.dataSource.filterPredicate = (data:any, filter: string): boolean => {
+      let searchString = JSON.parse(filter);
+      console.log(filter);
+      
+      // let isPositionAvailable = false;
+      // if (searchString.position.length) {
+      //   for (const d of searchString.position) {
+      //     if (data.position.trim() === d) {
+      //       isPositionAvailable = true;
+      //     }
+      //   }
+      // } else {
+      //   isPositionAvailable = true;
+      // }
+      const resultValue =
+        // isPositionAvailable &&
+        // data.active
+        // .toString()
+        // .trim()
+        // .toLowerCase()
+        // .indexOf(searchString.active.toLowerCase()) !== -1
+        data.isActive==searchString.active
+        // data.site_contact
+        //   .toString()
+        //   .trim()
+        //   .toLowerCase()
+        //   .indexOf(searchString.site_contact.toLowerCase()) !== -1 &&
+        // data.CST
+        //   .toString()
+        //   .trim()
+        //   .toLowerCase()
+        //   .indexOf(searchString.CST.toLowerCase()) !== -1 &&
+        // data.CEL
+        //   .toString()
+        //   .trim()
+        //   .toLowerCase()
+        //   .indexOf(searchString.CEL.toLowerCase()) !== -1;
+
+      return resultValue;
+    };
+    this.dataSource.filter = JSON.stringify(this.filterData);
+  }
+  filter(value:any){
+    // alert(value)
+    
+    // const filterData={
+    //   active:this.clientListForm.value.active=='Active'?true:'',
+    //   solarwinds:this.clientListForm.value.solarwinds,
+    //   IASO:this.clientListForm.value.IASO,
+    //   Mail:this.clientListForm.value.Mail,
+    //   CEL:this.clientListForm.value.CEL=='Has CEL'?true:'',
+    //   CST:this.clientListForm.value.CST=='Has CST'?true:'',
+    //   site_contact:this.clientListForm.value.site_contact=='Has Site Contact'?true:'',
+    //   roadmaps:this.clientListForm.value.roadmaps,
+    //   teams:this.clientListForm.value.teams
+    // }
+    // this.clientListForm.subscribe((value:any)=>{
+      //   console.log(value);
+      //   const filter = {...value, name: value.name.trim().toLowerCase()} as string;
+      
+      // })
+      // this.dataSource.filter = JSON.stringify(this.clientListForm.value.CEL=='Has CEL'?false:'')
+      switch (value) {
+        case 'active':
+          // const active=this.clientListForm.value.active=='Acitve'?'true':'false'
+          // this.dataSource.filter=this.clientListForm.value.active=='Acitve'?'true':'false'
+        
+        break;
+
+        case 'site_contact':
+          // const active=this.clientListForm.value.active=='Acitve'?'true':'false'
+          // this.dataSource.filter=JSON.stringify(this.clientListForm.value.site_contact=='Has Site Contact'?true:false)
+        // alert(this.clientListForm.value.site_contact=='Has Site Contact'?'true':'false')
+        // console.log(this.dataSource.filter);
+         this.dataSource.filteredData.filter((element:any)=>{
+           if(element.isHavingPrimarySiteContact==true){
+            this.dataSource.filter='true'
+            // console.log(element.isHavingPrimarySiteContact);
+           }
+         })
+    // this.dataSource.filter = JSON.stringify(filterData)
+    // console.log(this.dataSource.filteredData.filter((element:any)=>{
+      
+    // })
+        break;
+        
+        case 'teams':
+          // const active=this.clientListForm.value.active=='Acitve'?'true':'false'
+          this.dataSource.filter=this.clientListForm.value.teams
+        // alert(this.clientListForm.value.teams)
+        // console.log(this.dataSource);
+        
+        break;
+    
+      default:
+        break;
+    }
+    // this.dataSource.filteredData.filter((element:any)=>{
+    //   // console.log(element);
+    //   element.active=this.clientListForm.value.active=='Active'?true:false
+    //   // this.dataSource.filter=element.CEL
+      
+    // })
+    // this.dataSource.filteredData.filter()
+    // this.dataSource.filter = JSON.stringify(filterData)
+    // console.log(this.dataSource.filteredData.filter((element:any)=>{
+      
+    // })
   }
   // handlePageEvent(event: PageEvent) {
   //   this.length = event.length;

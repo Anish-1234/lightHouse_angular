@@ -8,9 +8,9 @@
                         {{form?.key}}
                     </div>
                     <mat-form-field appearance="fill" fxFlex="60" >
-                        <mat-select formControlName={{form?.formName}} (click)="filter($event)">
+                        <mat-select formControlName={{form?.formName}} >
                             <mat-option value="">Any</mat-option>
-                            <mat-option [value]="data" *ngFor="let data of form?.values">{{data}}</mat-option>
+                            <mat-option [value]="data" *ngFor="let data of form?.values"  >{{data}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -18,7 +18,7 @@
 
             <div class="mx-auto" fxLayout="row" fxLayoutGap='5px'>
                 <button mat-raised-button>Reset</button>
-                <button mat-raised-button color="primary">Filter</button>
+                <button mat-raised-button color="primary" >Filter</button>
             </div>
         </div>
     </form>
