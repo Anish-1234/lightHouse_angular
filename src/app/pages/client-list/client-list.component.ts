@@ -192,12 +192,14 @@ export class ClientListComponent implements OnInit {
     if (isAllFilterAny) {
       filteredData = this.originalData;
     }  
-    this.excelData = filteredData
+    this.excelData=filteredData
     this.initTable(filteredData);
   }
   exportAsXLXS() {
     let dataArr=new Array();
-    this.originalData.forEach((element:any) => {
+    this.excelData = this.excelData==undefined?this.originalData:this.excelData
+    // console.log(this.excelData);
+    this.excelData.forEach((element:any) => {
       dataArr.push({
         'Name': element.name ? element.name : '--',
         'Primary Site Contact': element.isHavingPrimarySiteContact == true ? 'Has Site Contact' : 'No Site Contact',
@@ -211,7 +213,7 @@ export class ClientListComponent implements OnInit {
         'Reveiw Date': element.reviewDate ? element.reviewDate : '--',
       })
     })
-    this.service.exportAsExcelFile(dataArr, 'Client Management List')
+    // this.service.exportAsExcelFile(dataArr, 'Client Management List')
   }
   private initTable(filteredData: any[]) {
     this.totalClient=filteredData.length
