@@ -156,18 +156,19 @@ export class ClientListComponent implements OnInit {
     this.initTable(this.mock.userData.Clients.clients);
   }
 
-  sortData(sort: Sort) {
-    const data = this.originalData.slice();
-    if (!sort.active || sort.direction === '') {
-      this.sortedData = data;
-    } else {
-      this.sortedData = data.sort((a:any, b:any) => {
-        const aValue = a[sort.active];
-        const bValue = b[sort.active];
-        return (aValue < bValue ? -1 : 1) * (sort.direction === 'asc' ? 1 : -1);
-      });
-    }
-  }
+  // sortData(sort: Sort) {
+    // const data = this.dataSource.sort
+    // if (!sort.active || sort.direction === '') {
+    //   this.sortedData = this.dataSource;
+    // } 
+    // else {
+    //   this.sortedData = this.dataSource.sort((a:any, b:any) => {
+    //     const aValue = a[sort.active];
+    //     const bValue = b[sort.active];
+    //     return (aValue < bValue ? -1 : 1) * (sort.direction === 'asc' ? 1 : -1);
+    //   });
+    // }
+  // }
   applyFilter() {
     let filteredData!: any[];
     let isAllFilterAny = true;

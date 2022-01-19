@@ -31,49 +31,49 @@ export class SidebarComponent implements OnInit {
       name: 'CRM',
       link:'client-list',
       icon:'fa-building',
-      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}]
+      children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}]
     },
     {
       name: 'Service Desk',
       link:'dashboard',
       icon:'fa-wrench',
-      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}]
+      children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}]
     },
     {
       name: 'Client Management',
       link:'dashboard',
       icon:'fa-suitcase',
-      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}]
+      children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}]
     },
     {
       name: 'Reporting',
       link:'dashboard',
       icon:'fa-bar-chart',
-      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
+      children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}],
     },
     {
       name: 'New Business',
       link:'dashboard',
       icon:'fa-id-card',
-       children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
+       children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}],
     },
     {
       name: 'Videos',
       link:'dashboard',
       icon:'fa-file-video-o',
-       children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
+       children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}],
     },
     {
       name: 'Admin',
       link:'dashboard',
       icon:'fa-cogs',
-      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
+      children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}],
     },
     {
       name: 'Useful info',
       link:'dashboard',
       icon:'fa-info-circle',
-      children: [{name: 'Apple',link:'dashboard',icon:''}, {name: 'Banana',link:'dashboard',icon:''}, {name: 'Fruit loops',link:'dashboard',icon:''}],
+      children: [{name: 'item1',link:'dashboard',icon:''}, {name: 'item2',link:'dashboard',icon:''}, {name: 'item3',link:'dashboard',icon:''}],
     },
   ];
   private _transformer = (node: FoodNode, level: number) => {
