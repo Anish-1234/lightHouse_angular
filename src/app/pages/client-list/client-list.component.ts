@@ -195,10 +195,9 @@ export class ClientListComponent implements OnInit {
     this.excelData=filteredData
     this.initTable(filteredData);
   }
-  exportAsXLXS() {
+  exportAsCSV() {
     let dataArr=new Array();
     this.excelData = this.excelData==undefined?this.originalData:this.excelData
-    // console.log(this.excelData);
     this.excelData.forEach((element:any) => {
       dataArr.push({
         'Name': element.name ? element.name : '--',
@@ -213,7 +212,7 @@ export class ClientListComponent implements OnInit {
         'Reveiw Date': element.reviewDate ? element.reviewDate : '--',
       })
     })
-    // this.service.exportAsExcelFile(dataArr, 'Client Management List')
+    this.service.exportAsExcelFile(dataArr, 'Client Management List')
   }
   private initTable(filteredData: any[]) {
     this.totalClient=filteredData.length

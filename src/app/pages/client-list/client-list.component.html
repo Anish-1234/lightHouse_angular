@@ -7,7 +7,7 @@
             {{filterModel.label}}
           </div>
           <mat-form-field appearance="fill" fxFlex="60">
-            <mat-select [(ngModel)]="filterModel.model" (ngModelChange)="applyFilter()">
+            <mat-select [(ngModel)]="filterModel.model" >
               <mat-option [value]="data.value" *ngFor="let data of filterModel.data">
                 {{data.displayName}}
               </mat-option>
@@ -32,7 +32,7 @@
   
               <div class="example-container px-3">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
-                      <button mat-raised-button color="primary" (click)="exportAsXLXS()">
+                      <button mat-raised-button color="primary" (click)="exportAsCSV()">
                           <div class="mat-body-1 py-2">
                               EXPORT TO CSV
                           </div>
