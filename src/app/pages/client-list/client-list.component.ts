@@ -193,12 +193,11 @@ export class ClientListComponent implements OnInit {
       filteredData = this.originalData;
     }  
     this.excelData = filteredData
-    // console.log(this.excelData); 
     this.initTable(filteredData);
   }
   exportAsXLXS() {
     let dataArr=new Array();
-    this.excelData.forEach((element:any) => {
+    this.originalData.forEach((element:any) => {
       dataArr.push({
         'Name': element.name ? element.name : '--',
         'Primary Site Contact': element.isHavingPrimarySiteContact == true ? 'Has Site Contact' : 'No Site Contact',
