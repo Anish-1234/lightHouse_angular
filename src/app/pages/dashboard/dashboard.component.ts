@@ -38,10 +38,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.mybreakpoint = (window.innerWidth <= 600) ? 1 : 3;
-    // this.mybreakpointheight = (window.innerHeight<=200)?'wrap':'none';
   }
   handleSize(event:any) {
     this.mybreakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
-    // this.mybreakpointheight=(event.target.innerHeight<=200)?'wrap':'none'
     }
 }

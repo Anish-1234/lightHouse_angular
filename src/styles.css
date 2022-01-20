@@ -93,10 +93,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
 
+  table {
+    width: 100%;
+  }
+
   /* =-=-=-=-=-=-= scroll bar css =-=-=-=-=-=- */
   /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */

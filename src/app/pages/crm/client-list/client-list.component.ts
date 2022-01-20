@@ -1,21 +1,10 @@
 import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
-import { MatSort, Sort } from '@angular/material/sort';
+import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { CommonService } from 'src/app/service/common.service';
+import { ClientList, FilterModel } from 'src/app/models/Client';
+import {CommonService} from 'src/app/service/common.service';
 import {MockService} from 'src/app/service/mock.service';
-
-export interface FilterModel {
-  label: string;
-  model: any;
-  modelName: string;
-  data: DropdownData[]
-}
-
-export interface DropdownData {
-  displayName: string;
-  value: any;
-}
 
 @Component({
   selector: 'app-client-list',
@@ -25,13 +14,6 @@ export interface DropdownData {
 export class ClientListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  // length = 100;
-  pageSize = 10;
-  pageIndex = 0;
-  excelData!:any[]
-  totalClient:any
-  pageSizeOptions = [5, 10, 25];
-  sortedData:any
   filterModels: FilterModel[] = [
     {
       label: 'Active',
@@ -118,7 +100,7 @@ export class ClientListComponent implements OnInit {
         {displayName: 'Soteria', value: 6}
       ]
     },
-  ]
+  ];
   displayedColumns: string[] = [
     'Name',
     'Primary_Site_Contact',
@@ -132,45 +114,32 @@ export class ClientListComponent implements OnInit {
     'Reveiw_Date'
   ];
 
-  originalData: any[] = JSON.parse(JSON.stringify(this.mock.userData.Clients.clients));
-  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+  originalData: ClientList[] = JSON.parse(JSON.stringify(this.mockService.clientList.Clients.clients));
+  dataSource: MatTableDataSource<ClientList> = new MatTableDataSource<ClientList>();
 
-  constructor(private mock: MockService,private cdref: ChangeDetectorRef ,private service:CommonService) {
-    
+  constructor(
+    private mockService: MockService,
+    private changeDetectorRef: ChangeDetectorRef,
+    private commonService: CommonService) {
   }
 
   ngOnInit(): void {
   }
-  
+
   ngAfterViewInit() {
-    this.initTable(this.mock.userData.Clients.clients);
-    this.cdref.detectChanges();
-    this.dataSource.sort = this.sort;
-  }
-  resetFilter(){
-    this.filterModels.forEach((model) => {
-      if (model.model!= -1){
-        model.model=-1
-      }
-    })
-    this.initTable(this.mock.userData.Clients.clients);
+    this.initTable(this.mockService.clientList.Clients.clients);
+    this.changeDetectorRef.detectChanges();
   }
 
-  // sortData(sort: Sort) {
-    // const data = this.dataSource.sort
-    // if (!sort.active || sort.direction === '') {
-    //   this.sortedData = this.dataSource;
-    // } 
-    // else {
-    //   this.sortedData = this.dataSource.sort((a:any, b:any) => {
-    //     const aValue = a[sort.active];
-    //     const bValue = b[sort.active];
-    //     return (aValue < bValue ? -1 : 1) * (sort.direction === 'asc' ? 1 : -1);
-    //   });
-    // }
-  // }
+  resetFilter() {
+    this.filterModels.forEach((model) => {
+      model.model = -1
+    })
+    this.initTable(this.mockService.clientList.Clients.clients);
+  }
+
   applyFilter() {
-    let filteredData!: any[];
+    let filteredData!: ClientList[];
     let isAllFilterAny = true;
     this.filterModels.forEach((model) => {
       if (model.model > -1) {
@@ -185,6 +154,7 @@ export class ClientListComponent implements OnInit {
           if (model.modelName === 'teamId' && model.model > 0) {
             return data[model.modelName] === model.model;
           }
+          // @ts-ignore
           return data[model.modelName] === model.model;
         });
       }
@@ -192,32 +162,32 @@ export class ClientListComponent implements OnInit {
     // clear all filters
     if (isAllFilterAny) {
       filteredData = this.originalData;
-    }  
-    this.excelData=filteredData
+    }
     this.initTable(filteredData);
   }
+
   exportAsCSV() {
-    let dataArr=new Array();
-    this.excelData = this.excelData==undefined?this.originalData:this.excelData
-    this.excelData.forEach((element:any) => {
+    const dataArr: any[] = [];
+    this.dataSource.data.forEach((element: ClientList) => {
       dataArr.push({
         'Name': element.name ? element.name : '--',
-        'Primary Site Contact': element.isHavingPrimarySiteContact == true ? 'Has Site Contact' : 'No Site Contact',
-        'CST': element.isHavingCSTUsers ? 'Has CST'  : 'No CST',
+        'Primary Site Contact': element.isHavingPrimarySiteContact ? 'Has Site Contact' : 'No Site Contact',
+        'CST': element.isHavingCSTUsers ? 'Has CST' : 'No CST',
         'Solarwinds': element.gfiId ? element.gfiId : '--',
         'IASO': element.iasoId ? element.iasoId : '--',
         'Mail Scanning': element.iasoId ? element.iasoId : '--',
-        'CEL': element.CEL == true ? 'Has CEL' : 'No CEL',
-        'Active': element.isActive == true ? 'Active' : 'InActive',
+        'CEL': element.CEL ? 'Has CEL' : 'No CEL',
+        'Active': element.isActive ? 'Active' : 'InActive',
         'Team': element.teamName ? element.teamName : '--',
-        'Reveiw Date': element.reviewDate ? element.reviewDate : '--',
-      })
-    })
-    this.service.exportAsExcelFile(dataArr, 'Client Management List')
+        'Review Date': element.reviewDate ? element.reviewDate : '--',
+      });
+    });
+    this.commonService.exportAsExcelFile(dataArr, 'Client Management List')
   }
-  private initTable(filteredData: any[]) {
-    this.totalClient=filteredData.length
+
+  private initTable(filteredData: ClientList[]) {
     this.dataSource = new MatTableDataSource(filteredData);
-    this.dataSource.paginator = this.paginator
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 }
