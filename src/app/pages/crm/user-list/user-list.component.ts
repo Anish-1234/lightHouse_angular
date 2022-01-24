@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,8 @@ import { FilterModel } from 'src/app/models/Client';
 import { userList } from 'src/app/models/user';
 import { CommonService } from 'src/app/service/common.service';
 import { MockService } from 'src/app/service/mock.service';
+import { Chart } from 'node_modules/chart.js';
+import { reduce } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +16,11 @@ import { MockService } from 'src/app/service/mock.service';
 })
 export class UserListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild('myChart') myChart!: ElementRef;
   @ViewChild(MatSort) sort!: MatSort;
+  ClientName: any
+  pieChart: any;
+  frequency:string="monthly"
   filterModels: FilterModel[] = [
     {
       label: 'Active',
@@ -134,17 +140,21 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // const ctx = document.getElementById('myChart');
+    
   }
 
   ngAfterViewInit() {
     this.initTable(this.mockService.userList.Users.users);
     this.changeDetectorRef.detectChanges();
+    this.usersChart();
   }
 
   resetFilter() {
     this.filterModels.forEach((model) => {
       model.model = -1
     })
+    this.ClientName = ''
     this.initTable(this.mockService.userList.Users.users);
   }
 
@@ -170,24 +180,52 @@ export class UserListComponent implements OnInit {
     this.initTable(filteredData);
   }
 
+
+  searchByName(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.ClientName = filterValue
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  usersChart(): void {
+    const myChart = new Chart('myChart', {
+      type: 'line',
+      data: {   
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+              label: 'Activate',
+              data: [4, 9, 4, 4, 4, 3],
+              borderColor: 'rgb(75, 192, 192)',
+              borderWidth: 1
+          },
+          {
+            label: 'Deactivate',
+            data: [0, 0, 0, 0, 0, 1],
+            borderColor: 'rgb(15, 234, 192)',
+            borderWidth: 1
+        }]
+      },
+  });
+  }
+
   exportAsCSV() {
     const dataArr: any[] = [];
     this.dataSource.data.forEach((element: userList) => {
       dataArr.push({
-        'Name':element.name? element.name:'--',
-        'Email':element.emailAddress ? element.emailAddress:'--',
-        'Telephone':element.telephone?element.telephone:'--',
-        'Mobile':element.mobile ? element.mobile:'--',
-        'User Type':element.userType ? element.userType:'--',
-        'User Admin Role':element.isUserAdmin ? 'Has User Admin' : 'No User Admin',
-        'Change Approval':element.isChangeApproval ? 'Has Change Approval': 'No Change Approval',
-        'VIP' :element.VIP ? 'Has VIP' : 'No VIP',
+        'Name': element.name ? element.name : '--',
+        'Email': element.emailAddress ? element.emailAddress : '--',
+        'Telephone': element.telephone ? element.telephone : '--',
+        'Mobile': element.mobile ? element.mobile : '--',
+        'User Type': element.userType ? element.userType : '--',
+        'User Admin Role': element.isUserAdmin ? 'Has User Admin' : 'No User Admin',
+        'Change Approval': element.isChangeApproval ? 'Has Change Approval' : 'No Change Approval',
+        'VIP': element.VIP ? 'Has VIP' : 'No VIP',
         'Ultra VIP': element.ultraVIP ? 'Has Ultra VIP' : 'No Ultra VIP',
-        'CST':element.CST ? 'Has CST':'No CST',
-        'Spend':element.spend ? 'Has Spend' : 'No Spend',
-        'Site Contact':element.primarySiteContact ? 'Has Site' : 'No Site',
-        'All Emails':element.isMailOn ? 'Has Email' : 'No Email',
-        'Active':element.active ? 'Active' :'In Active'
+        'CST': element.CST ? 'Has CST' : 'No CST',
+        'Spend': element.spend ? 'Has Spend' : 'No Spend',
+        'Site Contact': element.primarySiteContact ? 'Has Site' : 'No Site',
+        'All Emails': element.isMailOn ? 'Has Email' : 'No Email',
+        'Active': element.active ? 'Active' : 'In Active'
       });
     });
     this.commonService.exportAsExcelFile(dataArr, 'Client Management List')

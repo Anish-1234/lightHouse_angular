@@ -8,12 +8,12 @@
               <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>   
               <span >{{node.name}} </span>  
             </mat-tree-node>
-            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" (click)="navigateLink(node.link)"  style="cursor: pointer;">  
-               <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>   
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" (click)="navigateLink(node.link)"  style="cursor: pointer">  
+               <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true" ></i>   
                <span>{{node.name}}</span> 
                 <mat-icon class="mat-icon-rtl-mirror ml-auto"  mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle' + node.name">
                     {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                </mat-icon>
+                </mat-icon>     
             </mat-tree-node>
         </mat-tree>
     </mat-sidenav>

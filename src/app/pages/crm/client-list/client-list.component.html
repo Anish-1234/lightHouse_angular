@@ -6,6 +6,7 @@
         <div class="mat-caption px-1 mt-2" fxFlex="40">
           {{filterModel.label}}
         </div>
+      
         <mat-form-field appearance="fill" fxFlex="60">
           <mat-select [(ngModel)]="filterModel.model">
             <mat-option [value]="data.value" *ngFor="let data of filterModel.data">

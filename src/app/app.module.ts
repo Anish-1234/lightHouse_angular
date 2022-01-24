@@ -13,6 +13,9 @@ import { SharingComponent } from './pages/sharing/sharing.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 // import { ClientListComponent } from './pages/client-list/client-list.component';
 import { MockService } from './service/mock.service';
+import { NgChartsModule} from 'ng2-charts'
+// import { Chart } from 'chart.js';
+
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
@@ -24,15 +27,14 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     SharingComponent,
     DashboardComponent,
     PageNotFoundComponent,
-    // ClientListComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
     FormsModule,
+    BrowserModule,
+    AppRoutingModule, 
+    ReactiveFormsModule,
     AngularMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [MockService],
   bootstrap: [AppComponent]
