@@ -1,4 +1,4 @@
-export interface userList {
+export interface UserList {
     CST: boolean;
     Client_ID: number;
     VIP: boolean;
