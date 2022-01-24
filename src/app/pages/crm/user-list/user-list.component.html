@@ -6,7 +6,7 @@
             <canvas id="myChart" height="70"></canvas>
         </div>
         <div fxFlex="30">
-            <mat-grid-list cols="1" rowHeight="120px">
+            <mat-grid-list cols="1" rowHeight="1:0.4">
                 <mat-grid-tile style="background-color: #eeee;">
                     <div fxLayout="column">
                         <div class="mat-title">
@@ -33,18 +33,18 @@
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
                             <mat-form-field id="date-picker" appearance="fill">
-                                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
+                                <input matInput [matDatepicker]="picker1" placeholder="Choose a date">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
                             </mat-form-field>
                         </div>
                     </div>
                 </mat-grid-tile>
-                <mat-grid-tile rowspan="0.5">
+                <mat-grid-tile>
                     <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
-                            <div class="mat-caption" fxflex="60">
-                                Frequency
-                            </div>
+                        <div class="mat-caption" fxflex="60">
+                            Frequency
+                        </div>
                         <mat-form-field appearance="fill" fxflex="40">
                             <mat-select [(ngModel)]="frequency">
                                 <mat-option value="monthly">
