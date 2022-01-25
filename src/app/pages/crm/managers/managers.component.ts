@@ -1,5 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { managerClients } from 'src/app/models/managers';
 import { MockService } from 'src/app/service/mock.service';
@@ -12,12 +11,11 @@ import { MockService } from 'src/app/service/mock.service';
 export class ManagersComponent implements OnInit {
   OwnerName: any
   originalData: managerClients[] = JSON.parse(JSON.stringify(this.mockService.managers.managerClients));
-  dataSource!:any[] ;
+  dataSource!: managerClients[];
 
   constructor(
     private mockService: MockService,
-    private changeDetectorRef: ChangeDetectorRef,
-    private router:Router) {  
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -30,14 +28,19 @@ export class ManagersComponent implements OnInit {
   }
 
   applyFilter() {
-   let filteredData:managerClients[];
-   filteredData=this.originalData.filter(data=>{
-    return data['managerName'].includes(this.OwnerName)
-   })
-   this.initTable(filteredData) 
+    let filteredData!: managerClients[];
+    if (this.OwnerName) {
+      filteredData = this.originalData.filter(data => {
+        return data['managerName'].includes(this.OwnerName)
+      })
+      this.initTable(filteredData)
+    }
+    else {
+      this.initTable(this.originalData)
+    }
   }
 
   private initTable(filteredData: managerClients[]) {
-    this.dataSource=filteredData
+    this.dataSource = filteredData
   }
 }
