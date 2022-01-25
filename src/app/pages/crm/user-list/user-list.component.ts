@@ -3,12 +3,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FilterModel } from 'src/app/models/Client';
-import { userList } from 'src/app/models/user';
 import { CommonService } from 'src/app/service/common.service';
 import { MockService } from 'src/app/service/mock.service';
 import { Chart } from 'node_modules/chart.js';
-import { reduce } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserList } from '../../../models/User';
 
 @Component({
   selector: 'app-user-list',
@@ -131,8 +130,8 @@ export class UserListComponent implements OnInit {
     'Active'
   ];
 
-  originalData: userList[] = JSON.parse(JSON.stringify(this.mockService.userList.Users.users));
-  dataSource: MatTableDataSource<userList> = new MatTableDataSource<userList>();
+  originalData: UserList[] = JSON.parse(JSON.stringify(this.mockService.userList.Users.users));
+  dataSource: MatTableDataSource<UserList> = new MatTableDataSource<UserList>();
 
   constructor(
     private mockService: MockService,
@@ -161,7 +160,7 @@ export class UserListComponent implements OnInit {
   }
 
   applyFilter() {
-    let filteredData!: userList[];
+    let filteredData!: UserList[];
     let isAllFilterAny = true;
     this.filterModels.forEach((model) => {
       if (model.model > -1) {
@@ -192,14 +191,14 @@ export class UserListComponent implements OnInit {
   usersChart(): void {
     const myChart = new Chart('myChart', {
       type: 'line',
-      data: {   
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [{
-              label: 'Activate',
-              data: [4, 9, 4, 4, 4, 3],
-              borderColor: 'rgb(75, 192, 192)',
-              borderWidth: 1
-          },
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: 'Activate',
+          data: [4, 9, 4, 4, 4, 3],
+          borderColor: 'rgb(75, 192, 192)',
+          borderWidth: 1
+        },
           {
             label: 'Deactivate',
             data: [0, 0, 0, 0, 0, 1],
@@ -212,7 +211,7 @@ export class UserListComponent implements OnInit {
 
   exportAsCSV() {
     const dataArr: any[] = [];
-    this.dataSource.data.forEach((element: userList) => {
+    this.dataSource.data.forEach((element: UserList) => {
       dataArr.push({
         'Name': element.name ? element.name : '--',
         'Email': element.emailAddress ? element.emailAddress : '--',
@@ -233,7 +232,7 @@ export class UserListComponent implements OnInit {
     this.commonService.exportAsExcelFile(dataArr, 'Client Management List')
   }
 
-  private initTable(filteredData: userList[]) {
+  private initTable(filteredData: UserList[]) {
     this.dataSource = new MatTableDataSource(filteredData);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;

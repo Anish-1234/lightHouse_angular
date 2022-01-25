@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { managerClients } from 'src/app/models/managers';
-import { userList } from 'src/app/models/user';//-->
 import { MockService } from 'src/app/service/mock.service';
 
 @Component({
@@ -32,14 +31,9 @@ export class ManagersComponent implements OnInit {
 
   applyFilter() {
    let filteredData:managerClients[];
-   let isAllFilterAny = true;
    filteredData=this.originalData.filter(data=>{
-     isAllFilterAny = false;
-     return data['managerName'].includes(this.OwnerName)
+    return data['managerName'].includes(this.OwnerName)
    })
-   if (isAllFilterAny) {
-    filteredData = this.originalData;
-  }
    this.initTable(filteredData) 
   }
 
