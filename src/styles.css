@@ -36,10 +36,10 @@ body {
 }
 .icon-lighthouse-icon:before {
   content: "\e800";
-} /* '' */
+}
 .icon-lighthouse-icon-circle:before {
   content: "\e801";
-} /* '' */
+} 
 
 .login-wrapper {
   height: 100%;
@@ -108,6 +108,12 @@ button:focus {
 tr.mat-header-row,
 tr.mat-row {
   height: 35px !important;
+}
+
+.word-wrap{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 table {

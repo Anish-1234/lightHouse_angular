@@ -1,12 +1,12 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, Input, OnInit, } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-import { Router } from '@angular/router';
-interface FoodNode {
+import { NavigationStart, Router } from '@angular/router';
+interface SideBarNode {
   name: string;
   link: string;
   icon: string;
-  children?: FoodNode[];
+  children?: SideBarNode[];
 }
 interface ExampleFlatNode {
   expandable: boolean;
@@ -23,9 +23,10 @@ interface ExampleFlatNode {
 export class SidebarComponent implements OnInit {
   @Input() menuState: any;
   events: string[] = [];
+  Activate:any;
   opened: boolean = true;
-  TREE_DATA: FoodNode[] = [
-    { name: 'Launchpad', link: 'dashboard', icon: 'fa-rocket' },
+  TREE_DATA: SideBarNode[] = [
+    { name: 'Launchpad', link: '', icon: 'fa-rocket' },
     { name: 'Dhasboard', link: 'dashboard', icon: 'fa-tachometer' },
     {
       name: 'CRM',
@@ -34,7 +35,7 @@ export class SidebarComponent implements OnInit {
       children: [
         { name: 'Clients', link: 'crm/client-list', icon: 'fa-building' },
         { name: 'Users', link: 'crm/user-list', icon: 'fa-user' },
-        { name: 'Managers', link: '', icon: 'fa-users' },
+        { name: 'Managers', link: 'crm/managers', icon: 'fa-users' },
         { name: 'Client Services', link: '', icon: 'fa-bars' },
         { name: 'Service Descriptions', link: '', icon: 'fa-bars' },
         { name: 'Maintenance Windows', link: '', icon: 'fa-clock-o' },
@@ -83,7 +84,7 @@ export class SidebarComponent implements OnInit {
       children: [{ name: 'item1', link: '', icon: '' }, { name: 'item2', link: '', icon: '' }, { name: 'item3', link: '', icon: '' }],
     },
   ];
-  private _transformer = (node: FoodNode, level: number) => {
+  private _transformer = (node: SideBarNode, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
       name: node.name,
@@ -106,17 +107,35 @@ export class SidebarComponent implements OnInit {
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   constructor(public router: Router) {
+    // this.router.events.subscribe(element=>{
+    //   if (element instanceof NavigationStart){
+    //     this.TREE_DATA.forEach(data=>{
+    //     let ActiveLink
+    //     ActiveLink= '/share'+'/'+data.link
+    //     console.log('url',element.url,'Activate',ActiveLink);
+    //     if(ActiveLink==element.url){
+    //       console.log(ActiveLink);
+    //     }
+    //     })
+    //   }
+    // })
     this.dataSource.data = this.TREE_DATA;
   }
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   ngOnInit(): void {
+// console.log(this.hasChild);
+
   }
   ngOnChanges() {
     this.opened = this.menuState;
   }
+  onSelect(data:any){
+    // console.log(data);
+    this.Activate=data
+  }
   navigateLink(link: any) {
-    // console.log(`Share/${link}`);
+    this.onSelect(link)
     this.router.navigate([`Share/${link}`])
   }
 }

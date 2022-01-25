@@ -3,11 +3,11 @@
 
     <ng-container *ngFor="let filterModel of filterModels">
       <div fxLayout="row" fxLayoutAlign="start start" fxFlex="16">
-        <div class="mat-caption px-1 mt-2" fxFlex="40">
+        <div class="mat-caption px-1 mt-2" fxFlex="40" fxFlex.md="50">
           {{filterModel.label}}
         </div>
       
-        <mat-form-field appearance="fill" fxFlex="60">
+        <mat-form-field appearance="fill" fxFlex="60" fxFlex.md="50">
           <mat-select [(ngModel)]="filterModel.model">
             <mat-option [value]="data.value" *ngFor="let data of filterModel.data">
               {{data.displayName}}

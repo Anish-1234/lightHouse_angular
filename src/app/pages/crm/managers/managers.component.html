@@ -1,0 +1,43 @@
+<div class="main_container p-4">
+
+    <div fxLayout="row wrap" fxLayoutAlign="start start">
+        <div class="display-4">Managers </div>
+    </div>
+    <hr>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap='5px'>
+        <div fxFlex="40">
+            <div class="mat-caption px-1 mt-2" fxFlex="30">
+                Ticket Owner
+            </div>
+            <mat-form-field appearance="fill" class="example-full-width" fxFlex="70">
+                <input matInput [(ngModel)]="OwnerName" placeholder="Type a Owner">
+            </mat-form-field>
+        </div>
+        <div fxLayoutAlign="end" fxLayout="row" fxLayoutGap='5px' fxFlex="30">
+            <button mat-raised-button (click)="resetFilter()">Reset</button>
+            <button mat-raised-button color="primary" (click)="applyFilter()">Filter</button>
+        </div>
+    </div>
+    <mat-card style="height: auto;">
+        <mat-card-header>
+            <div class="mat-body-1">
+                <i class="fa fa-user pr-1" aria-hidden="true"></i>Managers and client
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="example-container px-3">
+                <ng-container *ngFor="let data of dataSource">
+                    <div class="mat-title" style="color: #44758a;">
+                        {{data.managerName}}
+                    </div>
+                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='5px'>
+                        <button mat-stroked-button  class="word-wrap btn-primary mb-1" fxFlex="19" fxFlex.md="24" *ngFor="let client of data?.clients" >
+                            <i class="fa fa-building pr-1" aria-hidden="true"></i> {{client.clientName | uppercase}}
+                        </button>
+                    </div>
+                    <hr>
+                </ng-container>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

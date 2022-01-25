@@ -2174,4 +2174,715 @@ export class MockService {
       }
     }
   
+  managers:any={
+      "Errors": [],
+      "managerClients": [
+        {
+          "clients": [
+            {
+              "clientId": 1,
+              "clientName": "Bluecube Technology Solutions"
+            },
+            {
+              "clientId": 269,
+              "clientName": "Princes Limited"
+            }
+          ],
+          "managerId": 23005,
+          "managerName": "Sue Kneill"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 2,
+              "clientName": "APM Group Limited"
+            },
+            {
+              "clientId": 17,
+              "clientName": "Prospectus Ltd"
+            },
+            {
+              "clientId": 40,
+              "clientName": "C & D Partnership Ltd"
+            },
+            {
+              "clientId": 63,
+              "clientName": "IRRV"
+            },
+            {
+              "clientId": 94,
+              "clientName": "Redmayne-Bentley LLP"
+            },
+            {
+              "clientId": 112,
+              "clientName": "The Brain Tumour Charity"
+            },
+            {
+              "clientId": 172,
+              "clientName": "Kriston Technology"
+            },
+            {
+              "clientId": 173,
+              "clientName": "Perceptive Accounting"
+            },
+            {
+              "clientId": 175,
+              "clientName": "18 Week Support"
+            },
+            {
+              "clientId": 183,
+              "clientName": "NCS Trust - Finance Team"
+            },
+            {
+              "clientId": 190,
+              "clientName": "POhWER"
+            },
+            {
+              "clientId": 201,
+              "clientName": "Ingleton Partners Ltd"
+            },
+            {
+              "clientId": 230,
+              "clientName": "Museum of the Mind"
+            },
+            {
+              "clientId": 231,
+              "clientName": "Bethlem Gallery Projects"
+            },
+            {
+              "clientId": 232,
+              "clientName": "The Maudsley Charity"
+            },
+            {
+              "clientId": 233,
+              "clientName": "The Ortus Centre"
+            },
+            {
+              "clientId": 262,
+              "clientName": "Ekim Consulting"
+            },
+            {
+              "clientId": 267,
+              "clientName": "Creations Interiors Ltd"
+            },
+            {
+              "clientId": 284,
+              "clientName": "Jackson Remediation"
+            }
+          ],
+          "managerId": 22385,
+          "managerName": "Jo Robertson"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 3,
+              "clientName": "Workers' Educational Association (WEA)"
+            },
+            {
+              "clientId": 12,
+              "clientName": "DAO Maritime Ltd"
+            },
+            {
+              "clientId": 42,
+              "clientName": "Carbon Registry Services"
+            },
+            {
+              "clientId": 50,
+              "clientName": "Diner Management"
+            },
+            {
+              "clientId": 86,
+              "clientName": "Oxford College of Marketing"
+            },
+            {
+              "clientId": 161,
+              "clientName": "Dalcour Maclaren Limited"
+            },
+            {
+              "clientId": 202,
+              "clientName": "Summit Platforms"
+            },
+            {
+              "clientId": 205,
+              "clientName": "discover.ai"
+            },
+            {
+              "clientId": 211,
+              "clientName": "Light Aircraft Association (LAA)"
+            },
+            {
+              "clientId": 215,
+              "clientName": "Grayson + Co"
+            },
+            {
+              "clientId": 228,
+              "clientName": "Costello Medical"
+            },
+            {
+              "clientId": 235,
+              "clientName": "Private Infrastructure Development Group (PIDG)"
+            },
+            {
+              "clientId": 237,
+              "clientName": "WEA Tutors"
+            },
+            {
+              "clientId": 240,
+              "clientName": "Molecule 2 Medicine (M2M) / Grey Wolf / Pathios / 30FiveBio"
+            },
+            {
+              "clientId": 244,
+              "clientName": "Bristow and Sutor"
+            },
+            {
+              "clientId": 258,
+              "clientName": "4 New Square"
+            },
+            {
+              "clientId": 259,
+              "clientName": "Blue Skies Partnership"
+            },
+            {
+              "clientId": 273,
+              "clientName": "Silverstone Circuits"
+            },
+            {
+              "clientId": 290,
+              "clientName": "Gray's Inn Tax Chamber"
+            },
+            {
+              "clientId": 294,
+              "clientName": "Visible Analytics Limited"
+            }
+          ],
+          "managerId": 21150,
+          "managerName": "Yolanda Williams"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 6,
+              "clientName": "Phi Partners Global Limited"
+            },
+            {
+              "clientId": 30,
+              "clientName": "Blue Earth Diagnostics Limited"
+            },
+            {
+              "clientId": 198,
+              "clientName": "Solstor"
+            },
+            {
+              "clientId": 216,
+              "clientName": "Pinnacle Power"
+            },
+            {
+              "clientId": 217,
+              "clientName": "Alliance Asset Management (AAM)"
+            },
+            {
+              "clientId": 227,
+              "clientName": "Gingerbread"
+            },
+            {
+              "clientId": 234,
+              "clientName": "Pinnacle Group"
+            },
+            {
+              "clientId": 255,
+              "clientName": "Digby Brown"
+            }
+          ],
+          "managerId": 25278,
+          "managerName": "Kelly Brookes"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 9,
+              "clientName": "Big Red Recruitment"
+            },
+            {
+              "clientId": 76,
+              "clientName": "MK Gallery"
+            },
+            {
+              "clientId": 80,
+              "clientName": "NCS Trust"
+            },
+            {
+              "clientId": 139,
+              "clientName": "Akur"
+            },
+            {
+              "clientId": 154,
+              "clientName": "Amazon Property Limited"
+            },
+            {
+              "clientId": 159,
+              "clientName": "Royal Docks Management Authority"
+            },
+            {
+              "clientId": 187,
+              "clientName": "Graymatter"
+            },
+            {
+              "clientId": 209,
+              "clientName": "Efficio"
+            },
+            {
+              "clientId": 210,
+              "clientName": "WSA Communications"
+            },
+            {
+              "clientId": 213,
+              "clientName": "Ecology Solutions"
+            },
+            {
+              "clientId": 253,
+              "clientName": "Luton Rising"
+            },
+            {
+              "clientId": 274,
+              "clientName": "nGAGE Specialist Recruitment Limited"
+            },
+            {
+              "clientId": 286,
+              "clientName": "UK Bio Centre"
+            }
+          ],
+          "managerId": 26937,
+          "managerName": "James Thornton"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 14,
+              "clientName": "Get Me Insight"
+            },
+            {
+              "clientId": 19,
+              "clientName": "33SIX Consulting Ltd"
+            },
+            {
+              "clientId": 26,
+              "clientName": "ASC Financial Solutions"
+            },
+            {
+              "clientId": 108,
+              "clientName": "STM Publishers"
+            },
+            {
+              "clientId": 110,
+              "clientName": "Bahamas Maritime Authority"
+            },
+            {
+              "clientId": 113,
+              "clientName": "The Fishburns"
+            },
+            {
+              "clientId": 117,
+              "clientName": "Train Door Solutions Ltd"
+            },
+            {
+              "clientId": 141,
+              "clientName": "Hireful LTD"
+            },
+            {
+              "clientId": 160,
+              "clientName": "2h Wealthcare LLP"
+            },
+            {
+              "clientId": 166,
+              "clientName": "Tollers LLP"
+            },
+            {
+              "clientId": 168,
+              "clientName": "Hako Machines Limited"
+            },
+            {
+              "clientId": 186,
+              "clientName": "Revoco"
+            },
+            {
+              "clientId": 188,
+              "clientName": "ATTRAQT"
+            },
+            {
+              "clientId": 189,
+              "clientName": "Cifas"
+            },
+            {
+              "clientId": 193,
+              "clientName": "Liberal Democrats"
+            },
+            {
+              "clientId": 208,
+              "clientName": "IM Kelly"
+            },
+            {
+              "clientId": 220,
+              "clientName": "Paravene Capital"
+            },
+            {
+              "clientId": 222,
+              "clientName": "CCN Communications"
+            },
+            {
+              "clientId": 270,
+              "clientName": "F42 Travel"
+            },
+            {
+              "clientId": 275,
+              "clientName": "Sharon Hosegood Associates"
+            },
+            {
+              "clientId": 280,
+              "clientName": "The McPin Foundation"
+            },
+            {
+              "clientId": 281,
+              "clientName": "The Bus Shelter MK"
+            },
+            {
+              "clientId": 291,
+              "clientName": "Watermill Press"
+            }
+          ],
+          "managerId": 12712,
+          "managerName": "Dani Goodyear"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 15,
+              "clientName": "Jackson-Stops"
+            },
+            {
+              "clientId": 23,
+              "clientName": "Alfred Franks and Bartlett"
+            },
+            {
+              "clientId": 31,
+              "clientName": "Astor Court Hotel"
+            },
+            {
+              "clientId": 43,
+              "clientName": "Clinica London Limited"
+            },
+            {
+              "clientId": 47,
+              "clientName": "Different Strokes (Trustees) Ltd"
+            },
+            {
+              "clientId": 55,
+              "clientName": "EFile"
+            },
+            {
+              "clientId": 57,
+              "clientName": "Gilmoora House"
+            },
+            {
+              "clientId": 66,
+              "clientName": "Langham Estate Management"
+            },
+            {
+              "clientId": 69,
+              "clientName": "Kendlebell"
+            },
+            {
+              "clientId": 74,
+              "clientName": "Harvey Howell London Ltd (Medici)"
+            },
+            {
+              "clientId": 77,
+              "clientName": "Napier Parking"
+            },
+            {
+              "clientId": 78,
+              "clientName": "MR Partnership"
+            },
+            {
+              "clientId": 83,
+              "clientName": "North East Atlantic Fisheries Commission (NEAFC)"
+            },
+            {
+              "clientId": 87,
+              "clientName": "Paul Newman New Homes"
+            },
+            {
+              "clientId": 107,
+              "clientName": "Stirling Grey Ltd"
+            },
+            {
+              "clientId": 109,
+              "clientName": "Stratton Group"
+            },
+            {
+              "clientId": 142,
+              "clientName": "Magenta Storage Ltd"
+            },
+            {
+              "clientId": 152,
+              "clientName": "Enferm Medical"
+            },
+            {
+              "clientId": 200,
+              "clientName": "23 Capital Management Limited"
+            },
+            {
+              "clientId": 203,
+              "clientName": "CE Mining"
+            },
+            {
+              "clientId": 225,
+              "clientName": "I CAN"
+            },
+            {
+              "clientId": 229,
+              "clientName": "Love Oggs (Alternative Foods)"
+            },
+            {
+              "clientId": 248,
+              "clientName": "Laister Planning"
+            },
+            {
+              "clientId": 256,
+              "clientName": "Investor Update"
+            }
+          ],
+          "managerId": 26352,
+          "managerName": "Leon Flinch"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 34,
+              "clientName": "Acme Corporation (Testing)"
+            },
+            {
+              "clientId": 153,
+              "clientName": "BSH Home Appliances"
+            },
+            {
+              "clientId": 181,
+              "clientName": "Rochford District Council"
+            },
+            {
+              "clientId": 204,
+              "clientName": "Bluecube Commissions"
+            },
+            {
+              "clientId": 241,
+              "clientName": "Work.life"
+            },
+            {
+              "clientId": 250,
+              "clientName": "Buckden Parish Council"
+            },
+            {
+              "clientId": 254,
+              "clientName": "SWC - South West College"
+            },
+            {
+              "clientId": 260,
+              "clientName": "Winch Designs"
+            },
+            {
+              "clientId": 264,
+              "clientName": "Evolve in Trade"
+            }
+          ],
+          "managerId": 16506,
+          "managerName": "Un Managed"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 41,
+              "clientName": "Citius"
+            },
+            {
+              "clientId": 61,
+              "clientName": "Infosec"
+            },
+            {
+              "clientId": 151,
+              "clientName": "Direct Cloud Backup"
+            },
+            {
+              "clientId": 157,
+              "clientName": "Sykes Global Services (UK)"
+            },
+            {
+              "clientId": 158,
+              "clientName": "Sykes Global Services (Europe)"
+            },
+            {
+              "clientId": 165,
+              "clientName": "Sykes Global Services (Europe - Local Servers)"
+            },
+            {
+              "clientId": 174,
+              "clientName": "Mirka"
+            },
+            {
+              "clientId": 184,
+              "clientName": "Direct Cloud Backup - KeeServices"
+            },
+            {
+              "clientId": 185,
+              "clientName": "Direct Cloud Backup - Headtech"
+            },
+            {
+              "clientId": 196,
+              "clientName": "National Children's Bureau (NCB)"
+            },
+            {
+              "clientId": 197,
+              "clientName": "McKay Securities"
+            },
+            {
+              "clientId": 212,
+              "clientName": "Paul Hamlyn Foundation (PHF)"
+            },
+            {
+              "clientId": 218,
+              "clientName": "Royal Marsden Cancer Charity"
+            },
+            {
+              "clientId": 223,
+              "clientName": "Asthma UK and British Lung Foundation Partnership (AUK/BLF)"
+            },
+            {
+              "clientId": 224,
+              "clientName": "The Tudor Trust"
+            },
+            {
+              "clientId": 243,
+              "clientName": "Department for International Trade"
+            },
+            {
+              "clientId": 282,
+              "clientName": "IT Venture"
+            },
+            {
+              "clientId": 285,
+              "clientName": "Infinite Group"
+            },
+            {
+              "clientId": 289,
+              "clientName": "The Mix"
+            }
+          ],
+          "managerId": 12470,
+          "managerName": "Juliet Herniman"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 114,
+              "clientName": "The Medical Research Network (MRN)"
+            },
+            {
+              "clientId": 261,
+              "clientName": "The Medical Research Network (HCP)"
+            }
+          ],
+          "managerId": 15711,
+          "managerName": "Stephen Chappell"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 137,
+              "clientName": "Michael Rothstein"
+            },
+            {
+              "clientId": 199,
+              "clientName": "Control Print"
+            },
+            {
+              "clientId": 236,
+              "clientName": "AG Thames (AGT)"
+            },
+            {
+              "clientId": 242,
+              "clientName": "MDEE"
+            },
+            {
+              "clientId": 287,
+              "clientName": "Refugee Council"
+            }
+          ],
+          "managerId": 27456,
+          "managerName": "Lee Dixon"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 164,
+              "clientName": "Telos Partners Group Limited"
+            }
+          ],
+          "managerId": 26660,
+          "managerName": "John Lee"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 249,
+              "clientName": "AJM Healthcare"
+            },
+            {
+              "clientId": 251,
+              "clientName": "SLR Consulting"
+            },
+            {
+              "clientId": 263,
+              "clientName": "The Retina Clinic London"
+            },
+            {
+              "clientId": 266,
+              "clientName": "ACS International Schools"
+            },
+            {
+              "clientId": 279,
+              "clientName": "Rugby Football Union (RFU)"
+            },
+            {
+              "clientId": 292,
+              "clientName": "BTO Solicitors"
+            }
+          ],
+          "managerId": 84,
+          "managerName": "David Robinson"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 252,
+              "clientName": "Control Risks"
+            },
+            {
+              "clientId": 276,
+              "clientName": "SureSkills"
+            }
+          ],
+          "managerId": 80,
+          "managerName": "James Hawker"
+        },
+        {
+          "clients": [
+            {
+              "clientId": 278,
+              "clientName": "Tangent"
+            }
+          ],
+          "managerId": 26516,
+          "managerName": "Matthew Orr"
+        }
+      ]
+  }
 }

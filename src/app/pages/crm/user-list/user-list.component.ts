@@ -8,6 +8,7 @@ import { CommonService } from 'src/app/service/common.service';
 import { MockService } from 'src/app/service/mock.service';
 import { Chart } from 'node_modules/chart.js';
 import { reduce } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -136,12 +137,13 @@ export class UserListComponent implements OnInit {
   constructor(
     private mockService: MockService,
     private changeDetectorRef: ChangeDetectorRef,
-    private commonService: CommonService) {
+    private commonService: CommonService,
+    private router:Router) {
   }
 
   ngOnInit(): void {
     // const ctx = document.getElementById('myChart');
-    
+
   }
 
   ngAfterViewInit() {

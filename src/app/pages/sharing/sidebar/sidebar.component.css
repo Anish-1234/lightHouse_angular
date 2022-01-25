@@ -6,7 +6,7 @@
   right: 0;
 }
 .mat-drawer.mat-drawer-side{
-  width: 260px;
+  width: 240px;
 }
 .mat-tree{
   background: none;
@@ -14,4 +14,19 @@
 mat-sidenav{
   background: #eeee;
 }
-
+mat-tree-node.active{
+  background-color: #43748a;
+  color: white;
+}
+mat-tree-node.childactive:active{
+  background-color: white;
+  color: black;
+  padding-left: 10px;
+}
+mat-tree-node{
+  /* padding: 0px 25px !important; */
+  cursor: pointer;
+}
+/* mat-tree-node .selected:active{
+  background: red;
+} */

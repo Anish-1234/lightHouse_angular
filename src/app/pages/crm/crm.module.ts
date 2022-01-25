@@ -5,13 +5,15 @@ import { CRMRoutingModule } from './crm-routing.module';
 import { UserListComponent } from './user-list/user-list.component';
 import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { ClientListComponent } from './client-list/client-list.component';
-import { NgChartsModule} from 'ng2-charts'
+import { NgChartsModule} from 'ng2-charts';
+import { ManagersComponent } from './managers/managers.component'
 
 
 @NgModule({
   declarations: [
     UserListComponent,
-    ClientListComponent
+    ClientListComponent,
+    ManagersComponent
   ],
   imports: [
     CommonModule,
