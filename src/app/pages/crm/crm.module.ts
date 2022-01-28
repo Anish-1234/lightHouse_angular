@@ -6,14 +6,16 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AngularMaterialModule } from 'src/app/angular-material.module';
 import { ClientListComponent } from './client-list/client-list.component';
 import { NgChartsModule} from 'ng2-charts';
-import { ManagersComponent } from './managers/managers.component'
+import { ManagersComponent } from './managers/managers.component';
+import { ServicesComponent } from './services/services.component'
 
 
 @NgModule({
   declarations: [
     UserListComponent,
     ClientListComponent,
-    ManagersComponent
+    ManagersComponent,
+    ServicesComponent
   ],
   imports: [
     CommonModule,

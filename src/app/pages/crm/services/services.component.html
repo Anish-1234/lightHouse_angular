@@ -1,0 +1,237 @@
+<div class="main_container p-4">
+
+    <div fxLayout="row wrap" fxLayoutAlign="start start">
+        <div class="display-4">Services </div>
+    </div>
+    <hr>
+    <section class="text-center">
+        <div class="mat-body-1"> client </div>
+        <mat-button-toggle-group [(ngModel)]="servicetype" aria-label="Font Style">
+            <mat-button-toggle value="HAS">HAS</mat-button-toggle>
+            <mat-button-toggle value="DOES_NOT_HAVE">DOES NOT HAVE</mat-button-toggle>
+        </mat-button-toggle-group>
+        <div class="mat-body-1 mb-3">the following services:</div>
+        <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='5px'>
+            <button mat-stroked-button class="word-wrap btn-primary mb-1" fxFlex="24.5" fxFlex.md="24" (click)="applyFilter(service?.clientServiceTypeId)"
+                *ngFor="let service of Service_top">
+                {{service.name | uppercase}}
+            </button>
+        </div>
+    </section>
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap='5px'>
+        <div fxFlex="35">
+            <div class="mat-caption px-1 mt-2" fxFlex="30">
+                client Name
+            </div>
+            <mat-form-field appearance="fill" class="example-full-width" fxFlex="70">
+                <input matInput [(ngModel)]="clienName" placeholder="Type a Client">
+            </mat-form-field>
+        </div>
+        <div fxFlex="35">
+            <div class="mat-caption px-1 mt-2" fxFlex="30">
+                Client Manager
+            </div>
+            <mat-form-field appearance="fill" class="example-full-width" fxFlex="70">
+                <input matInput [(ngModel)]="OwnerName" placeholder="Type a Owner">
+            </mat-form-field>
+        </div>
+        <div fxLayoutAlign="end" fxLayout="row" fxLayoutGap='5px' fxFlex="20">
+            <button mat-raised-button (click)="resetFilter()">Reset</button>
+            <button mat-raised-button color="primary" (click)="applyFilter()">Filter</button>
+        </div>
+    </div>
+    <mat-card style="height: auto;">
+        <mat-card-header>
+            <div class="mat-body-1">
+                <i class="fa fa-user pr-1" aria-hidden="true"></i>Client with Services
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="example-container p-3">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="Name">
+                        <th mat-header-cell *matHeaderCellDef> Name</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.clientName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Manager">
+                        <th mat-header-cell *matHeaderCellDef> Manager</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.managerName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="IT_Support_&_Service_Desk">
+                        <th mat-header-cell *matHeaderCellDef>IT Support & Service Desk</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==1">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Managed_Backup">
+                        <th mat-header-cell *matHeaderCellDef>Managed Backup</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==2">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Diaster_Recovery">
+                        <th mat-header-cell *matHeaderCellDef> Diaster Recovery</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==3">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Business_Continuity">
+                        <th mat-header-cell *matHeaderCellDef> Business Continuity</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==4">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Hosted_Phone_System">
+                        <th mat-header-cell *matHeaderCellDef> Hosted Phone System</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==5">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Proactive_Monitoring_Servers">
+                        <th mat-header-cell *matHeaderCellDef>Proactive Monitoring Servers</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==6">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Proactive_Monitoring_Desktop">
+                        <th mat-header-cell *matHeaderCellDef>Proactive Monitoring Desktop</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==7">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Infrastructure_as_a_Service">-->
+                        <th mat-header-cell *matHeaderCellDef>Infrastructure as a Service</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==8">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Mail_Archiving">
+                        <th mat-header-cell *matHeaderCellDef> Mail Archiving</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==9">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Mail_Scanning">
+                        <th mat-header-cell *matHeaderCellDef>Mail Scanning</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==10">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Managed_Anti_virus">
+                        <th mat-header-cell *matHeaderCellDef>Managed Anti virus</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==11">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Web_Security">
+                        <th mat-header-cell *matHeaderCellDef>Web Security</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==12">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Patch_management">
+                        <th mat-header-cell *matHeaderCellDef>Patch management</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==13">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Connectivity">
+                        <th mat-header-cell *matHeaderCellDef>Connectivity</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==14">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Software_Rental">
+                        <th mat-header-cell *matHeaderCellDef>Software Rental</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==15">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Managed_Wireless_Networking">
+                        <th mat-header-cell *matHeaderCellDef>Managed Wireless Networking</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==16">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Proactive_Monitoring">
+                        <th mat-header-cell *matHeaderCellDef>Proactive Monitoring</th>
+                        <td mat-cell *matCellDef="let element">
+                            <ng-container *ngFor="let service of element?.serviceTypes">
+                                <div class="mat-body-2" *ngIf="service?.serviceTypeId==17">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </div>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

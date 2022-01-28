@@ -1,0 +1,27 @@
+mat-card-header {
+    background-color: rgb(239 239 239) !important;
+    color: black !important;
+}
+.example-container{
+  overflow-x: auto;
+}
+.word-wrap{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+td.mat-cell {
+    border: 1px solid #e0e0e0;
+}
+th.mat-header-cell{
+    border: 1px solid #e0e0e0;
+}
+td.mat-cell:first-child {
+    /* row border */
+    border-left: 1px solid #e0e0e0;
+}
+
+td.mat-cell:last-child {
+    /* row border */
+    border-right: 1px solid #e0e0e0;
+}

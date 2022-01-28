@@ -1,0 +1,107 @@
+{
+  "Errors": [],
+  "clientServiceTypes": [
+    {
+      "active": true,
+      "clientServiceTypeId": 1,
+      "description": "Bluecube's standard support service (24x7 Service Desk)",
+      "name": "IT Support & Service Desk"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 2,
+      "description": "Backup of clients data using iASO",
+      "name": "Managed Backup"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 3,
+      "description": "Creation of Virtual Images, following backups, again using iASO and IaaS as a recovery platform",
+      "name": "Disaster Recovery"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 4,
+      "description": "For clients replicating their IaaS environment to our secondary IaaS platform in Norwich",
+      "name": "Business Continuity"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 5,
+      "description": "Horizon, provided with Gamma",
+      "name": "Hosted Phone System"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 6,
+      "description": "Monitoring of servers through Solarwinds",
+      "name": "Proactive Monitoring - Servers"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 7,
+      "description": "Monitoring of desktops through Solarwinds",
+      "name": "Proactive Monitoring - Desktop"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 8,
+      "description": "Provision of infrastructure and computing power from our IaaS platforms in MK or Norwich",
+      "name": "Infrastructure as a Service"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 9,
+      "description": "Archiving of all inbound and outbound email using LogicNow (MaxMail)",
+      "name": "Mail Archiving"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 10,
+      "description": "Scanning of all inbound and outbound email for SPAM and Virus content using LogicNow (MaxMail)",
+      "name": "Mail Scanning"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 11,
+      "description": "Protection of all devices (except Macs) using Bitdefender.  Deployed through Solarwinds.",
+      "name": "Managed Anti-Virus"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 12,
+      "description": "Web filtering and control.  Protects companies and gives control of web traffic.  Powered by Webroot.",
+      "name": "Web Security"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 13,
+      "description": "Deployment of patches using Solarwinds.",
+      "name": "Patch Management"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 14,
+      "description": "Internet and voice connectivity, provided through Gamma.",
+      "name": "Connectivity"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 15,
+      "description": "Rental of software on a monthly basis through our SPLA agreement",
+      "name": "Software Rental"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 16,
+      "description": "Monitoring of network devices through Solarwinds",
+      "name": "Managed Wireless Networking"
+    },
+    {
+      "active": true,
+      "clientServiceTypeId": 17,
+      "description": "Monitoring of devices through Solarwinds",
+      "name": "Proactive Monitoring"
+    }
+  ]
+}

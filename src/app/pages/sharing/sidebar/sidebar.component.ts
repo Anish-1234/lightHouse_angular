@@ -36,7 +36,7 @@ export class SidebarComponent implements OnInit {
         { name: 'Clients', link: 'crm/client-list', icon: 'fa-building' },
         { name: 'Users', link: 'crm/user-list', icon: 'fa-user' },
         { name: 'Managers', link: 'crm/managers', icon: 'fa-users' },
-        { name: 'Client Services', link: '', icon: 'fa-bars' },
+        { name: 'Client Services', link: 'crm/services', icon: 'fa-bars' },
         { name: 'Service Descriptions', link: '', icon: 'fa-bars' },
         { name: 'Maintenance Windows', link: '', icon: 'fa-clock-o' },
         { name: 'Removed Devices', link: '', icon: 'fa-desktop' }]
