@@ -13,6 +13,7 @@ export class ServicesComponent implements OnInit {
   OwnerName: any
   clienName: any
   servicetype?: string
+  clientserviceId?:number
   Service_top: ServiceTop[] = JSON.parse(JSON.stringify(this.mockService.service_top.clientServiceTypes))
   originalData: ClientServices[] = JSON.parse(JSON.stringify(this.mockService.service.clientServices));
   dataSource: MatTableDataSource<ClientServices> = new MatTableDataSource<ClientServices>();
@@ -53,6 +54,7 @@ export class ServicesComponent implements OnInit {
 
   applyFilter(serviceId?: number) {
     let filteredData!: ClientServices[];
+    this.clientserviceId=serviceId
     if (this.servicetype) {
       filteredData = (filteredData || this.originalData).filter(element => {
       return  element.serviceTypes.find(value => {

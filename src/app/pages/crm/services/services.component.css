@@ -5,6 +5,15 @@ mat-card-header {
 .example-container{
   overflow-x: auto;
 }
+mat-button-toggle{
+    background-color: #37474f;
+    color: white;
+    border-right: solid 1px white;
+}
+mat-button-toggle.active{
+    background-color: #43748a;
+    color: white;
+}
 .word-wrap{
     text-overflow: ellipsis;
     overflow: hidden;
@@ -17,11 +26,14 @@ th.mat-header-cell{
     border: 1px solid #e0e0e0;
 }
 td.mat-cell:first-child {
-    /* row border */
     border-left: 1px solid #e0e0e0;
 }
 
 td.mat-cell:last-child {
-    /* row border */
     border-right: 1px solid #e0e0e0;
+}
+
+.btn-service.active{
+    background-color: #37474f;
+    color: white;
 }
