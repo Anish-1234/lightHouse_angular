@@ -72,7 +72,7 @@ export class ServicesComponent implements OnInit {
     }
     else if (this.OwnerName) {
       filteredData = (filteredData || this.originalData).filter(data => {
-        return (data.managerName!=null? data.managerName :'--').toLowerCase().includes(this.OwnerName.toLowerCase())
+        return (data.managerName!=null? data.managerName :'').toLowerCase().includes(this.OwnerName.toLowerCase())
       })
     }
     else {

@@ -18,15 +18,26 @@ mat-tree-node.active{
   background-color: #43748a;
   color: white;
 }
-mat-tree-node.childactive:active{
+mat-tree-node.childactive{
+  background-color: white;
+}
+/* mat-tree-node.childactive:active{
   background-color: white;
   color: black;
   padding-left: 10px;
-}
+} */
 mat-tree-node{
   /* padding: 0px 25px !important; */
+  /* padding-left: 30px; */
   cursor: pointer;
 }
-/* mat-tree-node .selected:active{
-  background: red;
+/* mat-tree-node.mat-tree-node.cdk-tree-node.ng-star-inserted{
+  padding-left: 25px!important;
 } */
+/* mat-tree-node.mat-tree-node.cdk-tree-node.none.ng-star-inserted{
+  padding-left: 40px!important;
+} */
+
+.tree-invisible{
+  background-color: violet;
+}

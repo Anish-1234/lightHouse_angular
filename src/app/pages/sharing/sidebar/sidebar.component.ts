@@ -23,7 +23,8 @@ interface ExampleFlatNode {
 export class SidebarComponent implements OnInit {
   @Input() menuState: any;
   events: string[] = [];
-  Activate:any;
+  Activate: any;
+  activesidebar:any
   opened: boolean = true;
   TREE_DATA: SideBarNode[] = [
     { name: 'Launchpad', link: '', icon: 'fa-rocket' },
@@ -106,36 +107,19 @@ export class SidebarComponent implements OnInit {
     node => node.children,
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-  constructor(public router: Router) {
-    // this.router.events.subscribe(element=>{
-    //   if (element instanceof NavigationStart){
-    //     this.TREE_DATA.forEach(data=>{
-    //     let ActiveLink
-    //     ActiveLink= '/share'+'/'+data.link
-    //     console.log('url',element.url,'Activate',ActiveLink);
-    //     if(ActiveLink==element.url){
-    //       console.log(ActiveLink);
-    //     }
-    //     })
-    //   }
-    // })
+  constructor(public router: Router) {    
     this.dataSource.data = this.TREE_DATA;
   }
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   ngOnInit(): void {
-// console.log(this.hasChild);
-
+    
   }
   ngOnChanges() {
     this.opened = this.menuState;
   }
-  onSelect(data:any){
-    // console.log(data);
-    this.Activate=data
-  }
   navigateLink(link: any) {
-    this.onSelect(link)
+    this.Activate = `Share/${link}`
     this.router.navigate([`Share/${link}`])
   }
 }
