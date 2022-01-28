@@ -13,7 +13,7 @@ export class ServicesComponent implements OnInit {
   OwnerName: any
   clienName: any
   servicetype?: string
-  clientserviceId?:number
+  clientserviceId?: number
   Service_top: ServiceTop[] = JSON.parse(JSON.stringify(this.mockService.service_top.clientServiceTypes))
   originalData: ClientServices[] = JSON.parse(JSON.stringify(this.mockService.service.clientServices));
   dataSource: MatTableDataSource<ClientServices> = new MatTableDataSource<ClientServices>();
@@ -48,39 +48,36 @@ export class ServicesComponent implements OnInit {
   resetFilter() {
     this.OwnerName = ''
     this.clienName = ''
-    this.servicetype=''
+    this.servicetype = ''
     this.initTable(this.originalData);
   }
 
   applyFilter(serviceId?: number) {
     let filteredData!: ClientServices[];
-    this.clientserviceId=serviceId
+    this.clientserviceId = serviceId
     if (this.servicetype) {
       filteredData = (filteredData || this.originalData).filter(element => {
       return  element.serviceTypes.find(value => {
           if (value.serviceTypeId==serviceId) {
              return value.serviceTypeId
           }
-          else {
             return !value.serviceTypeId
-          }
         })
       })
     }
     else if (this.clienName) {
       filteredData = (filteredData || this.originalData).filter(data => {
-        return data['clientName'].includes(this.clienName)
+        return data['clientName'].toLowerCase().includes(this.clienName.toLowerCase())
       })
     }
     else if (this.OwnerName) {
       filteredData = (filteredData || this.originalData).filter(data => {
-        return data.managerName === this.OwnerName
+        return (data.managerName!=null? data.managerName :'--').toLowerCase().includes(this.OwnerName.toLowerCase())
       })
     }
     else {
       filteredData = this.originalData
     }
-    console.log(filteredData);
     this.initTable(filteredData)
   }
 

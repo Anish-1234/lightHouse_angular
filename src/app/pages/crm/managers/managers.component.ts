@@ -30,8 +30,8 @@ export class ManagersComponent implements OnInit {
   applyFilter() {
     let filteredData!: managerClients[];
     if (this.OwnerName) {
-      filteredData = this.originalData.filter(data => {
-        return data['managerName'].includes(this.OwnerName)
+      filteredData = this.originalData.filter(data => { 
+        return data['managerName'].toLowerCase().includes(this.OwnerName.toLowerCase())
       })
       this.initTable(filteredData)
     }

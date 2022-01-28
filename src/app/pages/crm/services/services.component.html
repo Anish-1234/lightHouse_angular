@@ -5,14 +5,15 @@
     </div>
     <hr>
     <section class="text-center">
-        <div class="mat-body-1"> client </div>
+        <div class="mat-body-1"> Client </div>
         <mat-button-toggle-group [(ngModel)]="servicetype" aria-label="Font Style">
             <mat-button-toggle value="HAS" [ngClass]="{'active':servicetype=='HAS'}">HAS</mat-button-toggle>
             <mat-button-toggle value="DOES_NOT_HAVE" [ngClass]="{'active':servicetype=='DOES_NOT_HAVE'}">DOES NOT HAVE</mat-button-toggle>
         </mat-button-toggle-group>
         <div class="mat-body-1 mb-3">the following services:</div>
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='5px'>
-            <button mat-stroked-button class="word-wrap btn-service mb-1" fxFlex="24.5" fxFlex.md="24"  [ngClass]="{'active':service?.clientServiceTypeId===clientserviceId}" (click)="applyFilter(service?.clientServiceTypeId)"
+            <!-- [ngClass]="{'active':service?.clientServiceTypeId===clientserviceId}" -->
+            <button mat-stroked-button class="word-wrap btn-service mb-1" fxFlex="24.5" fxFlex.md="24"   (click)="applyFilter(service?.clientServiceTypeId)"
                 *ngFor="let service of Service_top">
                 {{service.name | uppercase}}
             </button>

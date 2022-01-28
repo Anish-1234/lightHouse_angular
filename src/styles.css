@@ -110,14 +110,14 @@ tr.mat-row {
   height: 35px !important;
 }
 
-.word-wrap{
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
 table {
   width: 100%;
+}
+
+.word-wrap{
+  text-overflow: ellipsis!important;
+  overflow: hidden!important;
+  white-space: nowrap!important;
 }
 
 /* =-=-=-=-=-=-= scroll bar css =-=-=-=-=-=- */
