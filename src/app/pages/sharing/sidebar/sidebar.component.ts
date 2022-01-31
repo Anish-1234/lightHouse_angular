@@ -1,6 +1,6 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, Input, OnInit, } from '@angular/core';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { NavigationStart, Router } from '@angular/router';
 interface SideBarNode {
   name: string;
@@ -18,12 +18,12 @@ interface ExampleFlatNode {
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
   @Input() menuState: any;
   events: string[] = [];
-  Activate: any;
+  activeLink: string = '';
   activesidebar:any
   opened: boolean = true;
   TREE_DATA: SideBarNode[] = [
@@ -107,7 +107,7 @@ export class SidebarComponent implements OnInit {
     node => node.children,
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-  constructor(public router: Router) {    
+  constructor(public router: Router) {
     this.router.events.subscribe(event => {
       if(event instanceof NavigationStart) {
         // console.log(event);
@@ -119,15 +119,37 @@ export class SidebarComponent implements OnInit {
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   ngOnInit(): void {
-    
+
   }
   ngOnChanges() {
     this.opened = this.menuState;
   }
   navigateLink(link: any) {
     console.log(link);
-    
-    this.Activate = link
+
+    this.activeLink = link
     this.router.navigate([link])
+  }
+
+  getNodeClass(node: any) {
+    let cls = '';
+    if (node.level === 0) {
+      // parent node
+      cls = 'parent '
+      if (node.link === this.activeLink) {
+        cls += 'active';
+      } else {
+        cls += 'inactive';
+      }
+    } else {
+      cls = 'child '
+      // child node
+      if (node.link === this.activeLink) {
+        cls += 'active';
+      } else {
+        cls += 'inactive';
+      }
+    }
+    return cls;
   }
 }
