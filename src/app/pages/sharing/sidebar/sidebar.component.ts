@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
   activesidebar:any
   opened: boolean = true;
   TREE_DATA: SideBarNode[] = [
-    { name: 'Launchpad', link: '', icon: 'fa-rocket' },
+    { name: 'Launchpad', link: 'share/launchpad', icon: 'fa-rocket' },
     { name: 'Dhasboard', link: 'share/dashboard', icon: 'fa-tachometer' },
     {
       name: 'CRM',
@@ -38,9 +38,9 @@ export class SidebarComponent implements OnInit {
         { name: 'Users', link: 'share/crm/user-list', icon: 'fa-user' },
         { name: 'Managers', link: 'share/crm/managers', icon: 'fa-users' },
         { name: 'Client Services', link: 'share/crm/services', icon: 'fa-bars' },
-        { name: 'Service Descriptions', link: '', icon: 'fa-bars' },
-        { name: 'Maintenance Windows', link: '', icon: 'fa-clock-o' },
-        { name: 'Removed Devices', link: '', icon: 'fa-desktop' }]
+        { name: 'Service Descriptions', link: 'share/crm/service-description', icon: 'fa-bars' },
+        { name: 'Maintenance Windows', link: 'share/crm/maintenance-window', icon: 'fa-clock-o' },
+        { name: 'Removed Devices', link: 'share/crm/removed-devices', icon: 'fa-desktop' }]
     },
     {
       name: 'Service Desk',

@@ -14,11 +14,8 @@ const routes: Routes = [
     {path:'',redirectTo: '/dashboard', pathMatch: 'full'},
     {path:'dashboard',component:DashboardComponent},
     {path:'crm',loadChildren:()=>import('./pages/crm/crm.module').then(module=>module.CRMModule)}
-    // {path:'client-list',component:ClientListComponent},
-    // {path:'user-list',component:UserListComponent}
   ]},
   {path:'**',component:PageNotFoundComponent}
-  
 ];
 
 @NgModule({
