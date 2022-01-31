@@ -10,7 +10,7 @@ import { SharingComponent } from './pages/sharing/sharing.component';
 const routes: Routes = [
   {path:'',redirectTo: '/login', pathMatch: 'full'},
   {path:'login',component:LoginComponent },
-  {path:'Share',component:SharingComponent ,children:[
+  {path:'share',component:SharingComponent ,children:[
     {path:'',redirectTo: '/dashboard', pathMatch: 'full'},
     {path:'dashboard',component:DashboardComponent},
     {path:'crm',loadChildren:()=>import('./pages/crm/crm.module').then(module=>module.CRMModule)}

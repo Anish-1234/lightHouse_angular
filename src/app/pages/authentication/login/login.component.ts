@@ -13,6 +13,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   navigate(){
-    this.router.navigate(['/Share/dashboard'])
+    this.router.navigate(['/share/dashboard'])
   }
 }

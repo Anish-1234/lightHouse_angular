@@ -4,20 +4,17 @@
         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
             <!-- [ngClass]="{'active':node.link==Activate}" -->
             <!-- [ngClass]="node.level==0 && 'Share/'+node.link==Activate ? 'active': node.level==1 && 'Share/'+node.link==Activate ? 'childactive':'none'" -->
-            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="navigateLink(node.link)">
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="navigateLink(node.link)"  [ngClass]="node.level==0 && node.link==Activate ? 'active': node.level==1 && node.link==Activate ? 'childactive':'none'" [ngClass]="{'child':node.level>0}">
                 <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>
                 <span>{{node.name}}</span>
             </mat-tree-node>
-            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodeToggle
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodeToggle 
                 [attr.aria-label]="'Toggle' + node.name" (click)="navigateLink(node.link)">
                 <i [class]="'fa'+'  '+node.icon+'  '+'mr-2'" aria-hidden="true"></i>
                 <span>{{node.name}}</span>
                 <mat-icon class="mat-icon-rtl-mirror ml-auto" mat-icon-button>
                     {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                 </mat-icon>
-                <div [class.tree-invisible]="!treeControl.isExpanded(node)">
-                    <ng-container cdkTreeNodeOutlet></ng-container>
-                </div>
             </mat-tree-node>
         </mat-tree>
     </mat-sidenav>

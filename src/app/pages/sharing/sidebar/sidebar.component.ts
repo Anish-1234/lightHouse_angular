@@ -28,16 +28,16 @@ export class SidebarComponent implements OnInit {
   opened: boolean = true;
   TREE_DATA: SideBarNode[] = [
     { name: 'Launchpad', link: '', icon: 'fa-rocket' },
-    { name: 'Dhasboard', link: 'dashboard', icon: 'fa-tachometer' },
+    { name: 'Dhasboard', link: 'share/dashboard', icon: 'fa-tachometer' },
     {
       name: 'CRM',
-      link: 'crm/client-list',
+      link: 'share/crm/client-list',
       icon: 'fa-building',
       children: [
-        { name: 'Clients', link: 'crm/client-list', icon: 'fa-building' },
-        { name: 'Users', link: 'crm/user-list', icon: 'fa-user' },
-        { name: 'Managers', link: 'crm/managers', icon: 'fa-users' },
-        { name: 'Client Services', link: 'crm/services', icon: 'fa-bars' },
+        { name: 'Clients', link: 'share/crm/client-list', icon: 'fa-building' },
+        { name: 'Users', link: 'share/crm/user-list', icon: 'fa-user' },
+        { name: 'Managers', link: 'share/crm/managers', icon: 'fa-users' },
+        { name: 'Client Services', link: 'share/crm/services', icon: 'fa-bars' },
         { name: 'Service Descriptions', link: '', icon: 'fa-bars' },
         { name: 'Maintenance Windows', link: '', icon: 'fa-clock-o' },
         { name: 'Removed Devices', link: '', icon: 'fa-desktop' }]
@@ -108,6 +108,12 @@ export class SidebarComponent implements OnInit {
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   constructor(public router: Router) {    
+    this.router.events.subscribe(event => {
+      if(event instanceof NavigationStart) {
+        // console.log(event);
+
+      }
+    });
     this.dataSource.data = this.TREE_DATA;
   }
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
@@ -119,7 +125,9 @@ export class SidebarComponent implements OnInit {
     this.opened = this.menuState;
   }
   navigateLink(link: any) {
-    this.Activate = `Share/${link}`
-    this.router.navigate([`Share/${link}`])
+    console.log(link);
+    
+    this.Activate = link
+    this.router.navigate([link])
   }
 }

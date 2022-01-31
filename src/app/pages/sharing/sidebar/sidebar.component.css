@@ -27,7 +27,7 @@ mat-tree-node.childactive{
   padding-left: 10px;
 } */
 mat-tree-node{
-  /* padding: 0px 25px !important; */
+  padding: 0px 25px !important;
   /* padding-left: 30px; */
   cursor: pointer;
 }

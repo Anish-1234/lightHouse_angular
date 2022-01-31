@@ -12,7 +12,7 @@ import { MockService } from 'src/app/service/mock.service';
 export class ServicesComponent implements OnInit {
   OwnerName: any
   clienName: any
-  servicetype?: string
+  servicetype?: string="HAS"
   clientserviceId?: number
   Service_top: ServiceTop[] = JSON.parse(JSON.stringify(this.mockService.service_top.clientServiceTypes))
   originalData: ClientServices[] = JSON.parse(JSON.stringify(this.mockService.service.clientServices));
@@ -58,12 +58,12 @@ export class ServicesComponent implements OnInit {
     if (this.servicetype) {
       filteredData = (filteredData || this.originalData).filter(element => {
       return  element.serviceTypes.find(value => {
-          if (value.serviceTypeId==serviceId) {
+          if (value.serviceTypeId==serviceId && this.servicetype=='HAS') {
              return value.serviceTypeId
           }
             return !value.serviceTypeId
         })
-      })
+      })      
     }
     else if (this.clienName) {
       filteredData = (filteredData || this.originalData).filter(data => {
