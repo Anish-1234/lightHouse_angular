@@ -8,13 +8,14 @@
         <div class="mat-body-1"> Client </div>
         <mat-button-toggle-group [(ngModel)]="servicetype" aria-label="Font Style">
             <mat-button-toggle value="HAS" [ngClass]="{'active':servicetype=='HAS'}">HAS</mat-button-toggle>
-            <mat-button-toggle value="DOES_NOT_HAVE" [ngClass]="{'active':servicetype=='DOES_NOT_HAVE'}">DOES NOT HAVE</mat-button-toggle>
+            <mat-button-toggle value="DOES_NOT_HAVE" [ngClass]="{'active':servicetype=='DOES_NOT_HAVE'}">DOES NOT HAVE
+            </mat-button-toggle>
         </mat-button-toggle-group>
         <div class="mat-body-1 mb-3">the following services:</div>
         <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='5px'>
             <!-- [ngClass]="{'active':service?.clientServiceTypeId===clientserviceId}" -->
-            <button mat-stroked-button class="word-wrap btn-service mb-1" fxFlex="24.5" fxFlex.md="24"   (click)="applyFilter(service?.clientServiceTypeId)"
-                *ngFor="let service of Service_top">
+            <button mat-stroked-button class="word-wrap btn-service mb-1" fxFlex="24.5" fxFlex.md="24"
+                (click)="applyFilter(service?.clientServiceTypeId)" *ngFor="let service of Service_top">
                 {{service.name | uppercase}}
             </button>
         </div>
@@ -48,9 +49,15 @@
             </div>
         </mat-card-header>
         <mat-card-content>
-            <div class="example-container p-3">
-                <table mat-table [dataSource]="dataSource" matSort>
-                    <ng-container matColumnDef="Name">
+            <div fxLayout="row" fxLayoutAlign="end start">
+                <mat-paginator [pageSize]="10" showFirstLastButtons [pageSizeOptions]="[5, 10, 25]"
+                    aria-label="Select page">
+                </mat-paginator>
+            </div>
+            <div class="example-container m-3">
+               
+                <table mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="Name" sticky="true">
                         <th mat-header-cell *matHeaderCellDef> Name</th>
                         <td mat-cell *matCellDef="let element"> {{element?.clientName}} </td>
                     </ng-container>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { ClientServices, ServiceTop } from 'src/app/models/service';
 import { MockService } from 'src/app/service/mock.service';
 
@@ -10,6 +10,7 @@ import { MockService } from 'src/app/service/mock.service';
   styleUrls: ['./services.component.css']
 })
 export class ServicesComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   OwnerName: any
   clienName: any
   servicetype?: string="HAS"
@@ -42,9 +43,10 @@ export class ServicesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit() {
     this.initTable(this.originalData);
   }
-
   resetFilter() {
     this.OwnerName = ''
     this.clienName = ''
@@ -83,5 +85,6 @@ export class ServicesComponent implements OnInit {
 
   private initTable(filteredData: ClientServices[]) {
     this.dataSource = new MatTableDataSource(filteredData);
+    this.dataSource.paginator = this.paginator;
   }
 }

@@ -127,7 +127,7 @@ export class ClientListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.initTable(this.mockService.clientList.Clients.clients);
+    this.initTable(this.originalData);
     this.changeDetectorRef.detectChanges();
   }
 

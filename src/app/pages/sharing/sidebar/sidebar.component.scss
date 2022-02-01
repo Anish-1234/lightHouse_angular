@@ -8,42 +8,31 @@
 .mat-drawer.mat-drawer-side{
   width: 240px;
 }
-.mat-tree {
-  background: none;
-}
-
 mat-sidenav {
   background: #eeee;
 }
-
-mat-tree-node.active {
-  background-color: #43748a;
-  color: white;
-}
-
-mat-tree-node {
+.mat-tree{
+  background: none;
+  cursor: pointer;
   .child {
     &.active {
       background-color: white;
     }
 
     &.inactive {
-      padding: 0px 25px !important;
       cursor: pointer;
     }
   }
-
   .parent {
     &.active {
-
+      padding-left:25px!important;
+      background-color: #43748a;
+      color: white;
     }
-
+    
     &.inactive {
-
+      padding-left:25px!important;
     }
-  }
-
-  .tree-invisible {
-    background-color: violet;
   }
 }
+

@@ -24,7 +24,6 @@ export class SidebarComponent implements OnInit {
   @Input() menuState: any;
   events: string[] = [];
   activeLink: string = '';
-  activesidebar:any
   opened: boolean = true;
   TREE_DATA: SideBarNode[] = [
     { name: 'Launchpad', link: 'share/launchpad', icon: 'fa-rocket' },
@@ -108,12 +107,6 @@ export class SidebarComponent implements OnInit {
   );
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   constructor(public router: Router) {
-    this.router.events.subscribe(event => {
-      if(event instanceof NavigationStart) {
-        // console.log(event);
-
-      }
-    });
     this.dataSource.data = this.TREE_DATA;
   }
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
@@ -125,8 +118,6 @@ export class SidebarComponent implements OnInit {
     this.opened = this.menuState;
   }
   navigateLink(link: any) {
-    console.log(link);
-
     this.activeLink = link
     this.router.navigate([link])
   }
@@ -149,7 +140,7 @@ export class SidebarComponent implements OnInit {
       } else {
         cls += 'inactive';
       }
-    }
+    }    
     return cls;
   }
 }

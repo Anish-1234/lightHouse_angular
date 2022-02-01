@@ -229,7 +229,7 @@ export class UserListComponent implements OnInit {
         'Active': element.active ? 'Active' : 'In Active'
       });
     });
-    this.commonService.exportAsExcelFile(dataArr, 'Client Management List')
+    this.commonService.exportAsExcelFile(dataArr, 'User List')
   }
 
   private initTable(filteredData: UserList[]) {
